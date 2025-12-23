@@ -1,0 +1,219 @@
+<!-- 1. HERO SECTION CON EFECTO PARALLAX (paralaje) -->
+<section class="album-hero" id="hero" [style.--hero-focus-y]="heroFocusY">
+  <div class="parallax-bg" [style.background-image]="'url(' + heroImage + ')'"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="container">
+    <div class="album-hero-content">
+      <h1 class="album-title">Colección De Sueños</h1>
+      <p class="album-subtitle">Jassy Ojeda</p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="scrollToSpotify()">
+          <i class="fas fa-play"></i> Escuchar Ahora
+        </button>
+        <button class="btn btn-secondary" (click)="openGallery()">
+          <i class="fas fa-images"></i> Galería
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Desliza para descubrir</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+
+<!-- 2. SPOTIFY -->
+<section class="album-spotify" id="listen">
+  <div class="container">
+    <div class="section-header">
+      <h2>Escucha el Álbum</h2>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="album-spotify-inner">
+      <div class="spotify-container">
+        <div class="spotify-card">
+          <div class="spotify-header">
+            <i class="fab fa-spotify"></i>
+            <span>Reproducir en Spotify</span>
+          </div>
+          <div class="spotify-player">
+            <iframe
+              src="https://open.spotify.com/embed/album/4YEYmghQ6ydMN1WlYX1e3D"
+              width="100%"
+              height="380"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- ELIMINADA la tarjeta debajo del widget de Spotify -->
+        <!--
+        <div class="tracklist-visual"> ... </div>
+        -->
+      </div>
+      
+      <div class="visual-container">
+        <div class="album-artwork">
+          <img 
+            src="assets/images/Portadas/contra-portada-coleccion.jpeg" 
+            alt="Foto del universo de Colección de Sueños"
+            class="artwork-img"
+          >
+          <div class="artwork-overlay">
+            <div class="overlay-content">
+              <h3>Universo Visual</h3>
+              <p>Explora el mundo de Colección de Sueños</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ELIMINADOS los cuadrados de estadísticas -->
+        <!--
+        <div class="visual-stats"> ... </div>
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. GALERÍA INTERACTIVA -->
+<section class="album-gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <h2>Universo Visual</h2>
+      <p>Descubre las carátulas y el arte del álbum</p>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="gallery-container">
+      <div class="gallery-main">
+        <div class="main-image">
+          <img 
+            [src]="selectedImage" 
+            [alt]="selectedAlt"
+            (load)="onImageLoad()"
+            [class.loaded]="imageLoaded"
+          >
+          <div class="image-caption">
+            <h3>{{selectedTitle}}</h3>
+            <p>{{selectedDescription}}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="gallery-thumbnails">
+        <div 
+          *ngFor="let image of galleryImages; let i = index"
+          class="thumbnail-item"
+          [class.active]="selectedIndex === i"
+          (click)="selectImage(i)"
+        >
+          <img [src]="image.src" [alt]="image.alt">
+          <div class="thumbnail-overlay">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUEVO: COLLAGE DE LA ETAPA -->
+    <div class="era-memories">
+      <div class="era-header">
+        <h3>Recuerdos de la etapa</h3>
+        <p>Momentos, ensayos y fotos detrás de “Colección de Sueños”.</p>
+      </div>
+
+      <div class="memories-collage">
+        <div
+          *ngFor="let memory of eraMemories"
+          class="memory-item"
+          [class.big]="memory.size === 'big'"
+          [class.wide]="memory.size === 'wide'"
+          [class.tall]="memory.size === 'tall'"
+        >
+          <img [src]="memory.src" [alt]="memory.alt" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ACERCA DEL ÁLBUM -->
+<section class="album-about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <div class="section-header">
+          <h2>Colección De Sueños</h2>
+          <div class="divider"></div>
+        </div>
+        
+        <div class="about-description">
+          <p>
+            <strong>"Colección de Sueños"</strong> es el primer gran capítulo del universo de Jassy Ojeda: 
+            un álbum que recoge momentos, heridas y pequeñas victorias como si fueran 
+            postales guardadas en una caja bajo la cama. Cada canción es un recuerdo 
+            que vuelve, un sueño que se quedó a medias o una conversación que nunca se tuvo.
+          </p>
+          
+          <p>
+            El disco mezcla pop luminoso con detalles de R&amp;B, un punto nostálgico y mucha 
+            sinceridad en las letras. Habla de crecer demasiado deprisa, de los amores 
+            que aprietan más de la cuenta, de la presión por encajar y de la necesidad 
+            de encontrar un lugar propio en medio del ruido.
+          </p>
+          
+          <div class="highlight-box">
+            <i class="fas fa-quote-left"></i>
+            <p>
+              "Colección de Sueños" no pretende tener todas las respuestas, 
+              solo acompañarte mientras las buscas.
+            </p>
+          </div>
+          
+          <p>
+            Visualmente, el álbum se construye con colores vivos, globos, guitarras y cuartos 
+            llenos de objetos que parecen cobrar vida: el tipo de escenarios donde se sueña 
+            despierto.
+          </p>
+        </div>
+        
+        <div class="about-features">
+          <div class="feature-item">
+            <i class="fas fa-compact-disc"></i>
+            <h4>Producción</h4>
+            <p>Grabado en estudios independientes con sonido orgánico</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-palette"></i>
+            <h4>Arte Conceptual</h4>
+            <p>Universo visual único creado específicamente para el álbum</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-heart"></i>
+            <h4>Letras Sinceras</h4>
+            <p>Historias personales convertidas en canciones universales</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-visual">
+        <div class="visual-element">
+          <img src="assets/images/Portadas/coleccion-de-suenos-detail.jpg" alt="Detalle del álbum">
+          <div class="visual-decoration">
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

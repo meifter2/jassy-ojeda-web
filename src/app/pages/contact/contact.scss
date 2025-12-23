@@ -1,0 +1,85 @@
+.contacto-section {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdf6e3; // Fondo crema pastel suave
+  padding: 40px 20px;
+
+  .contacto-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 50px;
+    border-radius: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+    text-align: center;
+  }
+
+  .header-text {
+    margin-bottom: 35px;
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: #333;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+    .line {
+      width: 40px;
+      height: 4px;
+      background: #f3cf7a; // Amarillo pastel de tu marca
+      margin: 15px auto;
+      border-radius: 10px;
+    }
+    p {
+      color: #999;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+  }
+
+  .contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    input, textarea {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #f0f0f0;
+      border-radius: 15px;
+      background-color: #fafafa;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #f3cf7a;
+        background-color: #fff;
+        box-shadow: 0 5px 15px rgba(243, 207, 122, 0.1);
+      }
+    }
+
+    .btn-enviar {
+      margin-top: 20px;
+      background-color: #333;
+      color: white;
+      padding: 18px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #f3cf7a;
+        color: #333;
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

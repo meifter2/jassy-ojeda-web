@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* =======================================
+   PALETA DE COLORES (JASSY OJEDA - NUEVA PALETA)
+   ======================================= */
+
+// Colores Base
+$color-base-dark:    #001219;      // Fondo Principal (Negro Profundo)
+$color-base-light:   #e9d8a6;      // Fondo Header (Amarillo Pálido)
+
+// Colores de Acento VIBRANTES
+$color-accent-a: #ae2012;     // Acento Tierra / Rojo
+$color-accent-b: #ee9b00;     // Acento Vibrante / Hover (Naranja)
+$color-accent-c: #0a9396;     // Acento Secundario (Turquesa)
+
+// Tipografía
+$font-body: 'Inter', sans-serif; 
+$font-heading: 'Bungee', cursive; 
+
+body {
+    background-color: $color-base-dark; // ¡Nuevo fondo!
+    color: #FFFFFF; // Mantener texto en blanco para el contraste
+    font-family: $font-body;
+    margin: 0;
+    min-height: 100vh;
+}

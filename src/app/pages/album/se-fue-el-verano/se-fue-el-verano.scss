@@ -1,0 +1,842 @@
+/* ====== PALETA ====== */
+$color-ocean: #0b5f6e;
+$color-ocean-deep: #073a44;
+$color-sky: #88d7c0;
+$color-sand: #eadfb9;
+$color-sunset: #f2a35a; // naranja suavizado
+$color-coral: #cf5a2a;
+$color-night: #04161c;
+$color-white: #ffffff;
+
+$radius-xl: 24px;
+$radius-lg: 18px;
+
+$shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.25);
+$shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
+
+:host {
+  display: block;
+  color: $color-white;
+  background: linear-gradient(180deg, $color-night 0%, #031014 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ====== HEADER SECTIONS ====== */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+
+  h2 {
+    font-size: clamp(2.1rem, 3.6vw, 3rem);
+    margin: 0 0 10px;
+    letter-spacing: 0.2px;
+  }
+
+  p {
+    color: rgba($color-white, 0.78);
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  &--on-dark {
+    h2 { color: $color-white; }
+    p { color: rgba($color-white, 0.78); }
+  }
+}
+
+.divider {
+  height: 2px;
+  width: 110px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, $color-sunset, transparent);
+  position: relative;
+
+  &.summer-divider::before,
+  &.summer-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at 30% 30%, $color-sand 0%, $color-sunset 70%);
+    box-shadow: 0 10px 24px rgba($color-sunset, 0.25);
+  }
+
+  &.summer-divider::before { left: -16px; }
+  &.summer-divider::after { right: -16px; }
+}
+
+/* ====== HERO (más nítido) ====== */
+.album-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  text-align: center;
+
+  .parallax-bg {
+    position: absolute;
+    inset: -12%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+
+    /* Más punch (más contraste/saturación, menos “lavado”) */
+    filter: saturate(1.15) contrast(1.12) brightness(1.02);
+    transform: scale(1.03);
+    will-change: transform;
+
+    /* En algunos móviles el fixed se ve raro/borroso */
+    @media (max-width: 992px) {
+      background-attachment: scroll;
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    /* Bajamos la “niebla” del overlay para que se vea más la foto */
+    &.summer-overlay {
+      background:
+        radial-gradient(900px circle at 20% 20%, rgba($color-sky, 0.16), transparent 60%),
+        radial-gradient(900px circle at 80% 30%, rgba($color-sunset, 0.10), transparent 55%),
+        linear-gradient(
+          to bottom,
+          rgba($color-night, 0.18),
+          rgba($color-ocean-deep, 0.42),
+          rgba($color-night, 0.55)
+        );
+    }
+  }
+
+  .album-hero-content {
+    position: relative;
+    z-index: 3;
+
+    .album-title {
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+      letter-spacing: 2px;
+
+      /* Sombra más “definida” para que el texto corte mejor */
+      text-shadow: 0 22px 55px rgba(0, 0, 0, 0.60);
+
+      background: linear-gradient(90deg, $color-white, $color-sand, $color-white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .album-subtitle {
+      font-size: clamp(1.1rem, 2vw, 2rem);
+      color: rgba($color-sand, 0.95);
+      margin: 0 0 46px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: rgba($color-sand, 0.95);
+
+    span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+  }
+}
+
+
+/* ====== BUTTONS ====== */
+.btn {
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  font-size: 1.02rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+
+  &.summer-btn.btn-primary {
+    background: linear-gradient(135deg, $color-sunset, $color-coral);
+    color: $color-white;
+    box-shadow: 0 14px 30px rgba($color-coral, 0.22);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba($color-sunset, 0.22);
+    }
+  }
+
+  &.summer-btn.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: rgba($color-white, 0.92);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+/* ====== SPOTIFY ====== */
+.album-spotify {
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+
+  &.summer-listen {
+    background:
+      radial-gradient(1100px circle at 10% 10%, rgba($color-sky, 0.18), transparent 60%),
+      radial-gradient(900px circle at 80% 0%, rgba($color-sunset, 0.14), transparent 55%),
+      linear-gradient(135deg, $color-night 0%, $color-ocean-deep 55%, rgba($color-sunset, 0.10) 100%);
+
+    .album-spotify-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-top: 46px;
+      align-items: stretch; /* ✅ ambas columnas con el mismo alto */
+
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================
+       IZQUIERDA: Spotify card
+       ========================= */
+    .spotify-card {
+      border-radius: $radius-xl;
+      overflow: hidden;
+      box-shadow: $shadow-soft;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba($color-sky, 0.22);
+      backdrop-filter: blur(12px);
+      transition: transform 0.25s ease;
+
+      /* ✅ hacemos que el card tenga una altura fija para empatar con la derecha */
+      height: 520px;
+      display: flex;
+      flex-direction: column;
+
+      &:hover { transform: translateY(-6px); }
+
+      .spotify-header {
+        background: linear-gradient(135deg, rgba($color-ocean, 0.95), rgba($color-sky, 0.70));
+        padding: 18px 26px;
+        color: rgba($color-white, 0.95);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 1.1rem;
+
+        i { font-size: 1.5rem; }
+      }
+
+      .spotify-player {
+        /* ✅ el reproductor ocupa el resto del card */
+        flex: 1;
+        display: flex;
+        padding: 18px;
+        background: rgba(0, 0, 0, 0.15);
+
+        iframe {
+          width: 100%;
+          height: 100%;
+          min-height: 420px; /* por seguridad */
+          border: 0;
+        }
+      }
+    }
+
+    /* =========================
+       DERECHA: Imagen (más larga)
+       ========================= */
+    .album-artwork {
+      position: relative;
+      border-radius: $radius-xl;
+      overflow: hidden;
+
+      /* ✅ más alta, tipo “bloque spotify” */
+      height: 520px;
+
+      box-shadow: $shadow-card;
+      border: 1px solid rgba($color-sky, 0.18);
+
+      .artwork-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover; /* (rellenar recortando) */
+        transition: transform 0.9s ease;
+
+        /* (opcional) un pelín más nítida */
+        filter: contrast(1.05) saturate(1.06);
+      }
+
+      &:hover .artwork-img { transform: scale(1.06); }
+
+      .artwork-overlay {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 26px 26px 24px;
+        color: $color-white;
+        background: linear-gradient(
+          to top,
+          rgba($color-ocean-deep, 0.70),
+          rgba($color-sunset, 0.12),
+          transparent
+        );
+      }
+    }
+
+    /* =========================
+       Responsive: alturas más cómodas
+       ========================= */
+    @media (max-width: 992px) {
+      .spotify-card,
+      .album-artwork {
+        height: 460px;
+      }
+
+      .spotify-card .spotify-player iframe {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .spotify-card,
+      .album-artwork {
+        height: 420px;
+      }
+
+      .spotify-card .spotify-player iframe {
+        min-height: 320px;
+      }
+    }
+  }
+}
+
+
+/* ====== GALERÍA ====== */
+.album-gallery {
+  padding: 110px 0;
+  position: relative;
+
+  background:
+    radial-gradient(1200px circle at 15% 0%, rgba($color-sand, 0.22), transparent 55%),
+    radial-gradient(900px circle at 85% 20%, rgba($color-sky, 0.18), transparent 55%),
+    linear-gradient(180deg, #081d24 0%, #0a2a33 40%, #143741 100%);
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 28px;
+    align-items: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+
+  /* IZQUIERDA: grande (cuadrada) */
+  .gallery-main {
+    display: grid;
+    place-items: start center;
+
+    .main-image {
+      width: min(820px, 100%);
+      aspect-ratio: 1 / 1; /* (relación de aspecto) cuadrada */
+      border-radius: $radius-xl;
+      overflow: hidden;
+      position: relative;
+
+      /* ✅ menos “cristal”, más sólido */
+      background: rgba(0, 0, 0, 0.35);
+
+      border: 2px solid rgba($color-sunset, 0.35);
+      box-shadow: $shadow-soft;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* (rellenar recortando) */
+        display: block;
+
+        /* ✅ nitidez/punch */
+        filter: contrast(1.06) saturate(1.08) brightness(1.02);
+        image-rendering: -webkit-optimize-contrast;
+
+        /* si quieres fade (fundido) al cargar, cambia a opacity 0 y añade .loaded */
+        opacity: 1;
+        transition: transform 0.35s ease;
+      }
+
+      .image-caption {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 22px 22px 20px;
+        color: $color-white;
+
+        &.summer-caption {
+          background: linear-gradient(
+            to top,
+            rgba($color-night, 0.86),
+            rgba($color-sunset, 0.10),
+            transparent
+          );
+
+          h3 { font-size: 1.6rem; margin: 0 0 8px; }
+          p  { font-size: 1.02rem; margin: 0; opacity: 0.92; line-height: 1.45; }
+        }
+      }
+    }
+  }
+
+  /* DERECHA: miniaturas (a sangre) */
+  .gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-content: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @media (max-width: 520px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .thumbnail-item {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+
+      aspect-ratio: 1 / 1; /* (relación de aspecto) cuadrada */
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover; /* (rellenar recortando) */
+        transform: scale(1.01);
+        transition: transform 0.35s ease;
+      }
+
+      .thumb-glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(220px circle at 20% 20%, rgba($color-sky, 0.22), transparent 60%),
+          radial-gradient(220px circle at 80% 80%, rgba($color-sunset, 0.16), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+        pointer-events: none;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+
+        img { transform: scale(1.05); }
+        .thumb-glow { opacity: 1; }
+      }
+
+      &.active {
+        border-color: rgba($color-sunset, 0.85);
+        box-shadow: 0 18px 55px rgba($color-sunset, 0.14);
+      }
+    }
+  }
+}
+
+/* ====== COLLAGE / ERA MEMORIES ====== */
+.era-memories {
+  margin-top: 78px;
+  padding-top: 54px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+  background:
+    radial-gradient(900px circle at 20% 0%, rgba($color-sand, 0.16), transparent 58%),
+    radial-gradient(900px circle at 80% 10%, rgba($color-sky, 0.14), transparent 58%);
+
+  .era-header {
+    text-align: center;
+    margin-bottom: 36px;
+
+    h3 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 10px;
+      color: rgba($color-white, 0.96);
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: rgba($color-white, 0.78);
+      font-size: 1.12rem;
+      line-height: 1.6;
+    }
+  }
+
+  .memories-collage {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 140px;
+    gap: 16px;
+
+    @media (max-width: 900px) {
+      grid-auto-rows: 120px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 110px;
+    }
+
+    .memory-item {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      background: rgba(0, 0, 0, 0.20);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &.big  { grid-column: span 6; grid-row: span 2; }
+      &.wide { grid-column: span 8; grid-row: span 2; }
+
+      &.tall {
+        grid-column: span 3;
+        grid-row: span 2; /* ✅ más alto (vertical) */
+      }
+
+      @media (max-width: 600px) {
+        &.tall {
+          grid-column: span 6; /* en móvil ocupa el ancho */
+          grid-row: span 2;
+        }
+      }
+
+      /* normal */
+      &:not(.big):not(.wide) { grid-column: span 6; }
+
+      @media (min-width: 601px) {
+        &:not(.big):not(.wide) { grid-column: span 6; }
+        &.big  { grid-column: span 6; }
+        &.wide { grid-column: span 8; }
+      }
+
+      @media (min-width: 901px) {
+        &:not(.big):not(.wide) { grid-column: span 3; }
+        &.big  { grid-column: span 6; }
+        &.wide { grid-column: span 8; }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transform: scale(1.01);
+        transition: transform 0.45s ease;
+        filter: contrast(1.05) saturate(1.05);
+      }
+
+      &.summer-tilt:hover {
+        z-index: 2;
+        transform: translateY(-6px);
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.36);
+
+        img { transform: scale(1.06); }
+      }
+    }
+  }
+}
+
+/* ====== 4. ABOUT (Se Fue El Verano) ====== */
+.album-about {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(1100px circle at 15% 0%, rgba($color-sky, 0.16), transparent 60%),
+    radial-gradient(1000px circle at 85% 10%, rgba($color-sunset, 0.12), transparent 58%),
+    linear-gradient(135deg, $color-night 0%, $color-ocean-deep 70%, #031014 100%);
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
+  }
+
+  /* Columna texto */
+  .about-text {
+    .section-header {
+      margin-bottom: 26px;
+      text-align: left;
+
+      @media (max-width: 992px) {
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 8px;
+      }
+
+      .divider {
+        margin-left: 0;
+
+        @media (max-width: 992px) {
+          margin-left: auto;
+        }
+      }
+    }
+
+    .about-description {
+      p {
+        color: rgba($color-white, 0.84);
+        line-height: 1.85;
+        margin: 0 0 18px;
+        font-size: 1.07rem;
+
+        strong {
+          color: $color-sunset;
+          font-weight: 800;
+        }
+      }
+    }
+
+    /* Cita */
+    .highlight-box {
+      margin: 30px 0 28px;
+      padding: 26px 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 4px solid rgba($color-sunset, 0.95);
+
+      background:
+        radial-gradient(520px circle at 20% 20%, rgba($color-sky, 0.12), transparent 55%),
+        rgba(255, 255, 255, 0.06);
+
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+
+      i {
+        color: rgba($color-sunset, 0.95);
+        font-size: 1.9rem;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.18rem;
+        color: rgba($color-white, 0.92);
+        font-style: italic;
+        line-height: 1.55;
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        content: '“';
+        position: absolute;
+        top: -38px;
+        left: 16px;
+        font-size: 140px;
+        color: rgba($color-sunset, 0.10);
+        font-family: serif;
+        z-index: 0;
+      }
+    }
+
+    /* Features en cards */
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-item {
+        padding: 22px 18px;
+        border-radius: 18px;
+        text-align: left;
+
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba($color-sky, 0.18);
+        backdrop-filter: blur(10px);
+
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+        @media (max-width: 900px) {
+          text-align: center;
+        }
+
+        i {
+          font-size: 2.1rem;
+          color: rgba($color-sunset, 0.95);
+          margin-bottom: 12px;
+          display: inline-block;
+        }
+
+        h4 {
+          margin: 0 0 8px;
+          color: rgba($color-white, 0.96);
+          font-size: 1.18rem;
+          font-weight: 800;
+        }
+
+        p {
+          margin: 0;
+          color: rgba($color-white, 0.78);
+          font-size: 0.98rem;
+          line-height: 1.55;
+        }
+
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.30);
+          border-color: rgba($color-sunset, 0.55);
+        }
+      }
+    }
+  }
+
+  /* Columna visual */
+  .about-visual {
+    display: grid;
+    align-content: start;
+
+    .visual-element {
+      position: relative;
+      border-radius: $radius-xl;
+      overflow: hidden;
+
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transform: scale(1.01);
+      }
+
+      .visual-decoration {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        pointer-events: none;
+
+        .decoration-circle {
+          border-radius: 50%;
+          position: absolute;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+          opacity: 0.95;
+
+          &.water-bubble {
+            background: rgba($color-sky, 0.26);
+
+            &:nth-child(1) {
+              width: 58px; height: 58px;
+              top: 0; right: 0;
+              animation: aboutFloat 6s ease-in-out infinite;
+            }
+
+            &:nth-child(2) {
+              width: 42px; height: 42px;
+              top: 76px; right: -18px;
+              animation: aboutFloat 6s ease-in-out infinite;
+              animation-delay: 1.1s;
+            }
+
+            &:nth-child(3) {
+              width: 50px; height: 50px;
+              top: -22px; right: 56px;
+              animation: aboutFloat 6s ease-in-out infinite;
+              animation-delay: 2.2s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes aboutFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}

@@ -1,0 +1,207 @@
+<!-- 1. HERO -->
+<section class="album-hero summer-theme" id="hero">
+  <div
+    class="parallax-bg"
+    style="background-image: url('assets/images/caratulas/se-fue-el-verano/SeFueElVerano.jpg');"
+  ></div>
+
+  <div class="hero-overlay summer-overlay"></div>
+
+  <div class="container">
+    <div class="album-hero-content">
+      <h1 class="album-title">Se Fue El Verano</h1>
+      <p class="album-subtitle">Jassy Ojeda</p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary summer-btn" (click)="scrollToSpotify()">
+          <i class="fas fa-play"></i> Sumergirse en el Ritmo
+        </button>
+        <button class="btn btn-secondary summer-btn" (click)="openGallery()">
+          <i class="fas fa-images"></i> Álbum de Recuerdos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator summer-scroll">
+    <span>Desliza para sentir la brisa</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+
+<!-- 2. SPOTIFY -->
+<section class="album-spotify summer-listen" id="listen">
+  <div class="container">
+    <div class="section-header section-header--on-dark">
+      <h2>Amar el mar</h2>
+      <div class="divider summer-divider"></div>
+    </div>
+
+    <div class="album-spotify-inner">
+      <div class="spotify-container">
+        <div class="spotify-card summer-card">
+          <div class="spotify-header">
+            <i class="fab fa-spotify"></i>
+            <span>Las olas</span>
+          </div>
+          <div class="spotify-player">
+            <iframe
+              src="https://open.spotify.com/embed/album/4ZtsDcf9EpWIhpgyFvwsOG"
+              width="100%"
+              height="380"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-container">
+        <div class="album-artwork summer-artwork">
+          <img
+            src="assets/images/collages/SeFueElVerano/jassycantar.jpeg"
+            alt=""
+            class="artwork-img"
+          />
+          <div class="artwork-overlay summer-overlay">
+            <div class="overlay-content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. GALERÍA -->
+<section class="album-gallery summer-theme" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <h2>Bitácora de Salitre</h2>
+      <p>Instantáneas de un verano que se escapa entre los dedos</p>
+      <div class="divider summer-divider"></div>
+    </div>
+
+    <div class="gallery-container">
+      <!-- IZQUIERDA: carátula grande -->
+      <div class="gallery-main">
+        <div class="main-image summer-border">
+          <img
+            [src]="selectedImage"
+            [alt]="selectedAlt"
+            (load)="onImageLoad()"
+            [class.loaded]="imageLoaded"
+          />
+          <div class="image-caption summer-caption">
+            <h3>{{ selectedTitle }}</h3>
+            <p>{{ selectedDescription }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DERECHA: miniaturas -->
+      <div class="gallery-thumbnails">
+        <button
+          *ngFor="let image of galleryImages; let i = index"
+          type="button"
+          class="thumbnail-item summer-thumb"
+          [class.active]="selectedIndex === i"
+          (click)="selectImage(i)"
+          [attr.aria-label]="'Seleccionar: ' + image.title"
+        >
+          <img [src]="image.src" [alt]="image.alt" />
+          <span class="thumb-glow"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- COLLAGE DE LA ETAPA VERANIEGA -->
+    <div class="era-memories summer-memories">
+      <div class="era-header">
+        <h3>Flashbacks de Agosto</h3>
+        <p>Arena en los zapatos, grabaciones con calor y el adiós a la playa.</p>
+      </div>
+
+      <div class="memories-collage">
+        <div
+          *ngFor="let memory of eraMemories"
+          class="memory-item summer-tilt"
+          [class.big]="memory.size === 'big'"
+          [class.wide]="memory.size === 'wide'"
+          [class.tall]="memory.size === 'tall'"
+        >
+          <img [src]="memory.src" [alt]="memory.alt" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT -->
+<section class="album-about summer-about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <div class="section-header section-header--on-dark">
+          <h2>Se Fue El Verano</h2>
+          <div class="divider summer-divider"></div>
+        </div>
+
+        <div class="about-description">
+          <p>
+            <strong>"Se Fue El Verano"</strong> es la despedida necesaria. Es ese momento en el que el sol
+            empieza a bajar más temprano y nos damos cuenta de que los sueños de julio se han convertido
+            en recuerdos de septiembre.
+          </p>
+
+          <p>
+            Este EP abandona la introspección de la habitación para salir a la orilla. Aquí los ritmos son
+            orgánicos, con guitarras que bailan como las olas y una percusión que invita a no querer que
+            la noche acabe nunca.
+          </p>
+
+          <div class="highlight-box summer-box">
+            <i class="fas fa-water"></i>
+            <p>"Hay veranos que duran una vida entera, y canciones que te devuelven a ellos en un segundo."</p>
+          </div>
+
+          <p>
+            Visualmente, el proyecto se tiñe de azules profundos, naranjas atardecer y texturas de sal.
+            Es un viaje de huida hacia el mar para encontrar la calma.
+          </p>
+        </div>
+
+        <div class="about-features">
+          <div class="feature-item summer-feature">
+            <i class="fas fa-sun"></i>
+            <h4>Calidez Musical</h4>
+            <p>Producción envolvente con ecos de pop mediterráneo</p>
+          </div>
+          <div class="feature-item summer-feature">
+            <i class="fas fa-umbrella-beach"></i>
+            <h4>Nostalgia Veraniega</h4>
+            <p>Letras que huelen a despedida y a protección bajo el sol</p>
+          </div>
+          <div class="feature-item summer-feature">
+            <i class="fas fa-wind"></i>
+            <h4>Sonido Orgánico</h4>
+            <p>Instrumentos reales grabados con la brisa de fondo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="visual-element summer-element">
+          <img src="assets/images/collages/SeFueElVerano/altamar.jpeg" alt="Detalle marítimo del EP" />
+          <div class="visual-decoration">
+            <div class="decoration-circle water-bubble"></div>
+            <div class="decoration-circle water-bubble"></div>
+            <div class="decoration-circle water-bubble"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

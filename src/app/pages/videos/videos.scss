@@ -1,0 +1,137 @@
+@use '../../../styles.scss' as *;
+
+.videos-page {
+  min-height: 100vh;
+  background-color: #f5ebe0;        // fondo clarito tipo papel
+  padding: 90px 60px 100px;         // margen superior por el header fijo
+
+  position: relative;
+  overflow: hidden;                 // para que no se vean las esquinas de las formas
+}
+
+/* cuadrados / formas pastel de fondo */
+
+.videos-page::before,
+.videos-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 32px;
+  filter: blur(0.5px);
+  opacity: 0.22;
+  z-index: 0;
+}
+
+.videos-page::before {
+  width: 260px;
+  height: 260px;
+  background: #94d2bd;             // mint
+  top: 120px;
+  left: -60px;
+  transform: rotate(-8deg);
+}
+
+.videos-page::after {
+  width: 320px;
+  height: 320px;
+  background: #ca6702;             // naranja pastel
+  bottom: -80px;
+  right: -40px;
+  transform: rotate(6deg);
+}
+
+/* CABECERA */
+
+.videos-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;                       // por encima de las formas
+}
+
+.videos-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #001219;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background-color: $color-accent-a; // tu coral / rojo
+  }
+}
+
+.videos-subtitle {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* GRID DE VÍDEOS – 2 COLUMNAS */
+
+.videos-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); // 🔥 dos columnas fijas
+  gap: 36px 32px;
+
+  position: relative;
+  z-index: 1;                       // por encima de las formas de fondo
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;  // 16:9
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  background-color: #000;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-item:hover .video-wrapper {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.video-title {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #001219;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .videos-page {
+    padding: 80px 20px 80px;
+  }
+
+  .videos-grid {
+    grid-template-columns: minmax(0, 1fr); // en móvil 1 columna
+    gap: 26px 0;
+  }
+}
