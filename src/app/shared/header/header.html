@@ -1,81 +1,137 @@
 <header class="main-header">
-  <nav class="desktop-nav">
-    <ul class="nav-list">
-      <!-- LADO IZQUIERDO -->
-       <!--
-      <li class="nav-item">
-        <a [routerLink]="['/']" fragment="musica" class="nav-link">Música</a>
-      </li>
-      -->
-      <li class="nav-item">
-        <a [routerLink]="['/']" fragment="conciertos" class="nav-link">Conciertos</a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/']" fragment="bio" class="nav-link">Sobre mí</a>
-      </li>
-        <li class="nav-item">
-            <a routerLink="/videos" class="nav-link">Vídeos</a>
-        </li>
+  <div class="header-side header-side--left"></div>
 
-      <!-- LOGO CENTRADO -->
-      <li class="nav-item nav-item-logo">
-        <a [routerLink]="['/']" fragment="hero" class="logo">
-          <img 
-            src="assets/images/logo-jassy.png" 
-            alt="Logo Jassy Ojeda" 
-            class="logo-image"
-          >
+  <div class="header-center">
+    <a [routerLink]="['/']" fragment="hero" class="logo" aria-label="Ir al inicio">
+      <img
+        src="assets/images/logo-jassy.png"
+        alt="Jassy Ojeda"
+        class="logo-image"
+      >
+    </a>
+  </div>
+
+  <div class="header-side header-side--right">
+    <!-- REDES -->
+    <div class="header-socials">
+      <a
+        href="https://www.instagram.com/jassy__ojeda/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon"
+        aria-label="Instagram"
+      >
+        <img src="assets/images/instagram.svg" class="social-icon-img">
+      </a>
+
+      <a
+        href="https://open.spotify.com/intl-es/artist/6Iv6qiJGXQilJkBitIT5us"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon"
+        aria-label="Spotify"
+      >
+        <img src="assets/images/spotify.svg" class="social-icon-img">
+      </a>
+    </div>
+
+    <!-- HAMBURGUESA -->
+    <button
+      type="button"
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Abrir menú"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- OVERLAY -->
+<div
+  class="menu-overlay"
+  [class.is-open]="menuOpen"
+  (click)="closeMenu()"
+></div>
+
+<!-- PANEL LATERAL -->
+<aside class="side-panel" [class.is-open]="menuOpen">
+  <div class="side-panel-header">
+    <button
+      type="button"
+      class="close-btn"
+      (click)="closeMenu()"
+      aria-label="Cerrar menú"
+    >
+      ✕
+    </button>
+  </div>
+
+  <nav class="side-nav">
+    <ul class="side-nav-list">
+      <li class="side-nav-item">
+        <a [routerLink]="['/']" fragment="conciertos" class="side-nav-link" (click)="closeMenu()">
+          Conciertos
         </a>
       </li>
 
-      <!-- LADO DERECHO -->
-      <li class="nav-item">
-        <a routerLink="/contacto" class="nav-link">Contacto</a>
-      </li>
-      <li class="nav-item">
-        <a href="URL_TIENDA_EXTERNA" target="_blank" class="nav-link nav-link--store">
-          Tienda
+      <li class="side-nav-item">
+        <a [routerLink]="['/']" fragment="bio" class="side-nav-link" (click)="closeMenu()">
+          Sobre mí
         </a>
       </li>
 
-      <li class="nav-item nav-item-dropdown">
-        <button type="button" class="nav-link nav-link--dropdown">
-          <span class="dropdown-arrow" aria-hidden="true"></span>
-          <span class="dropdown-label-text">Proyectos</span>
-        </button>
+      <li class="side-nav-item">
+        <a routerLink="/videos" class="side-nav-link" (click)="closeMenu()">
+          Vídeos
+        </a>
+      </li>
 
-        <ul class="dropdown-menu">
-          <li class="dropdown-menu-item">
-            <a routerLink="/album/coleccion-de-suenos" class="dropdown-link">
+      <li class="side-nav-item">
+        <a routerLink="/contacto" class="side-nav-link" (click)="closeMenu()">
+          Contacto
+        </a>
+      </li>
+      
+      <li class="side-nav-item side-nav-item--group">
+        <span class="side-nav-title">Proyectos</span>
+
+        <ul class="side-subnav">
+          <li>
+            <a
+              routerLink="/album/coleccion-de-suenos"
+              class="side-subnav-link"
+              (click)="closeMenu()"
+            >
               Colección de Sueños
             </a>
           </li>
-          <li class="dropdown-menu-item">
-            <a routerLink="/album/se-fue-el-verano" class="dropdown-link">
+
+          <li>
+            <a
+              routerLink="/album/se-fue-el-verano"
+              class="side-subnav-link"
+              (click)="closeMenu()"
+            >
               Se Fue El Verano
             </a>
           </li>
         </ul>
       </li>
-
-
     </ul>
   </nav>
-  
 
-<div class="social-links">
-  <a href="https://www.instagram.com/jassy__ojeda/" target="_blank" class="social-icon">
-    <img src="assets/images/instagram-logo.png"
-         alt="Instagram"
-         class="social-icon-img social-icon-img--ig">
-  </a>
-  
-  <a href="https://open.spotify.com/intl-es/artist/6Iv6qiJGXQilJkBitIT5us?si=yY9bKn0ZR3yKFIYwsIoIFw"
-     target="_blank"
-     class="social-icon">
-    <img src="assets/images/spotify-logo.png"
-         alt="Spotify"
-         class="social-icon-img">
-  </a>
-</div>
+  <!-- REDES EN PANEL -->
+  <div class="side-social-links">
+    <a href="https://www.instagram.com/jassy__ojeda/" target="_blank" class="side-social-icon">
+      <img src="assets/images/instagram.svg" class="side-social-icon-img">
+    </a>
 
+    <a href="https://open.spotify.com/" target="_blank" class="side-social-icon">
+      <img src="assets/images/spotify.svg" class="side-social-icon-img">
+    </a>
+  </div>
+</aside>

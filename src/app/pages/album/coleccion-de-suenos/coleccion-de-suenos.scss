@@ -166,7 +166,7 @@ $transition-slow: all 0.5s ease;
   }
 
   .album-hero-content {
-    transform: translateY(clamp(18px, 6vh, 80px));
+    transform: translateY(clamp(40px, 10vh, 120px));
     max-width: 900px;
     margin: 0 auto;
 

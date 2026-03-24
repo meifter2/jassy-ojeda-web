@@ -1,7 +1,5 @@
-// src/app/shared/header/header.ts
-
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router'; // Importado para routerLink
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +9,13 @@ import { RouterModule } from '@angular/router'; // Importado para routerLink
   styleUrl: './header.scss'
 })
 export class HeaderComponent {
+  menuOpen = false;
 
-  // controla si el menú de "Proyectos" está abierto o cerrado
-  projectsMenuOpen = false;
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
 
-  // alterna el estado al hacer clic
-  toggleProjectsMenu(): void {
-    this.projectsMenuOpen = !this.projectsMenuOpen;
+  closeMenu(): void {
+    this.menuOpen = false;
   }
 }
