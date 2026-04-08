@@ -1,17 +1,15 @@
-<section class="hero-section" id="hero">
-  @if (isMobile) {
+<section id="hero" class="hero-section">
+  <picture>
+    <source
+      media="(max-width: 768px)"
+      srcset="assets/images/Portadas/portada_vertical.jpeg"
+    >
     <img
-    class="hero-image"
-    src="assets/images/Portadas/portada_vertical.jpeg"
-    alt="Portada de Jassy"
-    />
-  } @else {
-    <img
-    class="hero-image"
-    src="assets/images/Portadas/portada_principalñ.jpeg"
-    alt="Portada de Jassy"
-    />
-  }
+      src="assets/images/Portadas/portada_principalñ.jpeg"
+      alt="Portada de Jassy"
+      class="hero-image"
+    >
+  </picture>
 </section>
 
 <section class="musicIframe" id="musica">
