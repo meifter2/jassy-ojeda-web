@@ -83,7 +83,7 @@ $shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
 .album-hero {
   position: relative;
   height: 100vh;
-  min-height: 720px;
+  //min-height: 720px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -164,6 +164,15 @@ $shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
     flex-wrap: wrap;
   }
 
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0); 
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-8px); 
+  }
+}
+
   .scroll-indicator {
     position: absolute;
     bottom: 34px;
@@ -171,6 +180,9 @@ $shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
     transform: translateX(-50%);
     z-index: 3;
     color: rgba($color-sand, 0.95);
+    
+    /* Aplicamos la animación */
+    animation: bounce 2s infinite ease-in-out;
 
     span {
       display: block;
@@ -180,7 +192,15 @@ $shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
       text-transform: uppercase;
       opacity: 0.95;
     }
+
+    /* Si tienes un icono debajo del span, puedes darle un toque extra */
+    i {
+      font-size: 1.2rem;
+      display: block;
+      text-align: center;
+    }
   }
+
 }
 
 

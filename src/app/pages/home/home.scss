@@ -1,33 +1,31 @@
 @use '../../../styles.scss' as *;
 
 .hero-section {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+  overflow: hidden;
+  background: #000;
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    
-    // Altura fija (100vh - 75px del Header)
-    height: calc(100vh); 
-    
-    // Configuraciones Flexbox que permiten a .hero-content estirarse (align-items: stretch)
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
 
-    text-align: center;
-    overflow: hidden;
-
-    /* Estilos para la IMAGEN DE FONDO (Full-Screen) */
-    background-image: url("../../../assets/images/Portadas/SeFueElVerano.jpg");
-    background-size: cover;
-    background-position: center center;
-    //background-attachment: fixed; DEPENDE DE QUE MOLE MÁS
-
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba($color-base-dark, 0.4); 
-        z-index: 1;
-    }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // cover (cubrir): llena todo aunque recorte un poco
+  object-position: center center;
+  display: block;
 }
 
 .hero-content {
@@ -86,119 +84,6 @@ text-shadow:
     }
 }
 
-/* 🎧 NUEVOS ESTILOS PARA ELEMENTOS FLOTANTES (YA DISPONIBLE & SPOTIFY) 🎧 */
-
-.hero-floating-elements {
-    position: absolute; 
-    top: 45%; // Sigue centrado verticalmente
-    width: 100%;
-    
-    transform: translateY(-50%); 
-    z-index: 10;
-    
-    display: flex;
-    align-items: center; // CLAVE
-    justify-content: space-between; 
-    
-    // 🛑 CAMBIO: Eliminar el padding lateral (o ponerlo a 0)
-    padding: 0; 
-    pointer-events: none; // Mantenemos el puntero en el padre, pero el enlace sigue funcionando
-}
-
-.available-text {
-    margin-left: 200px; //MOVER AL CENTRO
-    font-family: 'Oswald', sans-serif;    
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: $color-base-light; 
-}
-
-.spotify-link {
-    // 🛑 CLAVE: Este margen empuja el logo hacia el centro
-    margin-right: 200px; //MOVER AL CENTRO
-    pointer-events: all; 
-    
-    .spotify-logo-floating {
-        height: 300px;
-        width: auto;
-    }
-}
-
-
-/* Estilos de la siguiente sección (para probar el scroll) */
-.next-section {
-    min-height: 100vh;
-    padding: 100px 40px;
-    background-color: $color-base-dark;
-    color: $color-base-light;
-}
-
-
-/* 🎧 SECCIÓN MÚSICA: SPOTIFY + VIDEOCLIP 🎧 */
-
-.musicIframe {
-  background-color: #001219;
-  padding: 90px 80px;
-  color: $color-base-light;
-}
-
-.music-layout {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;           // layout (disposición) en fila
-  gap: 48px;
-  align-items: stretch;    // estira ambas columnas para que se vean equilibradas
-}
-
-/* 🟢 TARJETAS (cards en inglés = tarjetas) BASE: SPOTIFY + VIDEO */
-
-.spotify-card,
-.video-card {
-  border-radius: 24px;
-  background: linear-gradient(
-    145deg,
-    rgba(10, 147, 150, 0.18),   // #0a9396
-    rgba(0, 0, 0, 0.85)
-  );
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(148, 210, 189, 0.25);  // #94d2bd suave
-  padding: 24px;
-}
-
-/* 🔊 IZQUIERDA: SPOTIFY */
-
-.spotify-card {
-  flex: 0 0 380px;     // ancho fijo aproximado
-  display: flex;
-  flex-direction: column;
-}
-
-.spotify-card h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 12px;
-  color: $color-accent-a;   // el color que ya te gusta
-
-  &::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    margin-top: 8px;
-    border-radius: 999px;
-    background-color: #ca6702;  // detalle naranja
-  }
-}
-
-.spotify-card iframe {
-  width: 100%;
-  border: none;
-  border-radius: 18px;
-  margin-top: 16px;
-  flex: 1;                 // ocupa el alto disponible dentro de la tarjeta
-  min-height: 420px;       // para que no quede más bajito que el vídeo
-  overflow: hidden;
-}
 
 /* 🎧 SECCIÓN MÚSICA: SPOTIFY + VIDEOCLIP 🎧 */
 
@@ -211,109 +96,84 @@ text-shadow:
 .music-layout {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 380px 1fr;
   gap: 48px;
-  align-items: flex-start; // títulos alineados en la parte de arriba
+  align-items: start;
 }
-
-/* Columnas generales */
 
 .music-col {
-  position: relative;
   display: flex;
   flex-direction: column;
+  align-self: start;
 }
-
-.music-col--spotify {
-  flex: 0 0 380px; // columna izquierda más estrecha
-}
-
-.music-col--video {
-  flex: 1;        // vídeo ocupa el resto
-}
-
-/* Títulos arriba (Spotify / Alta Mar – Videoclip oficial) */
 
 .music-heading {
   font-family: 'Oswald', sans-serif;
   font-size: 2rem;
   color: $color-accent-a;
-  margin: 0 0 10px 0;
-  text-transform: none;
+  margin: 0 0 22px 0;
+  line-height: 1.15;
+  min-height: 78px;
 
   &::after {
     content: "";
     display: block;
     width: 70px;
     height: 3px;
-    margin-top: 6px;
+    margin-top: 8px;
     border-radius: 999px;
-    background-color: #ca6702; // detalle naranja
+    background-color: #ca6702;
   }
 }
 
-/* Contenedor visual de cada widget (Spotify / YouTube) */
-
 .media-wrapper {
   position: relative;
-  margin-top: 18px;
+  margin-top: 0;
 }
-
-/* Rectángulos de contraste que "salen" de los extremos */
 
 .media-wrapper::before {
   content: "";
   position: absolute;
-  top: -22px;
-  bottom: -22px;
+  top: -24px;
+  bottom: -24px;
   border-radius: 24px;
   z-index: 1;
 }
 
 .media-wrapper--left::before {
-  left: -40px;
-  right: 30%;
-  background: rgba(3, 166, 248, 0.773);   // #0a9396 con transparencia
+  left: -50px;
+  right: 34%;
+  background: rgba(3, 166, 248, 0.773);
 }
 
 .media-wrapper--right::before {
-  left: 30%;
-  right: -40px;
-  background: rgba(3, 166, 248, 0.773);   // #0a9396 con transparencia
+  left: 34%;
+  right: -50px;
+  background: rgba(3, 166, 248, 0.773);
 }
-
-/* El iframe va por encima de los rectángulos */
 
 .media-wrapper iframe {
   position: relative;
   z-index: 2;
+  display: block;
   width: 100%;
   border: none;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+  vertical-align: top;
 }
 
-/* 📱 Responsive (móvil / tablet) */
+.music-col--spotify iframe {
+  height: 352px;
+  min-height: 352px;
+}
 
-@media (max-width: 900px) {
-  .musicIframe {
-    padding: 60px 20px;
-  }
-
-  .music-layout {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .music-col--spotify {
-    flex: 1 1 auto;
-  }
-
-  .media-wrapper::before {
-    left: -20px !important;
-    right: -20px !important;
-  }
+.music-col--video iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: unset;
 }
 
 /* 🎫 SECCIÓN CONCIERTOS */
@@ -544,6 +404,7 @@ text-shadow:
   font-size: 0.98rem;
   line-height: 1.8;
   margin-bottom: 14px;
+  text-align: justify;
 }
 
 /* DERECHA: FOTO A PANTALLA MEDIA */

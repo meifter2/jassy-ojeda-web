@@ -23,9 +23,12 @@
   align-items: center;
 }
 
+.header-side--left {
+  justify-content: flex-start;
+}
+
 .header-side--right {
   justify-content: flex-end;
-  gap: 14px;
 }
 
 .header-center {
@@ -57,8 +60,8 @@
 }
 
 .social-icon:hover .social-icon-img {
-  filter: brightness(0) saturate(100%) invert(74%) sepia(32%) saturate(400%) hue-rotate(5deg);
-  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(75%) saturate(2872%) hue-rotate(350deg) brightness(92%) contrast(95%);
+  transform: scale(1.14);
 }
 
 /* HAMBURGUESA */
@@ -157,7 +160,7 @@
 }
 
 .side-nav-item--group {
-  margin-top: 0;
+  margin-top: 18;
 }
 
 .side-nav-link,
@@ -173,12 +176,15 @@
   margin: 0;
 }
 
-.side-nav-link:hover,
-.side-nav-title:hover {
+.side-nav-link:hover {
   color: $color-accent-b;
-  transform: translateX(-4px);
+  transform: translateX(4px);
 }
 
+.side-nav-title:hover {
+  color: #fff;
+  transform: none;
+}
 .side-subnav {
   list-style: none;
   margin: 10px 0 0 0;
@@ -210,7 +216,7 @@
 
 .side-subnav-link:hover {
   color: $color-accent-b;
-  transform: translateX(-4px);
+  transform: translateX(4px);
 }
 
 /* REDES PANEL */
@@ -228,7 +234,6 @@
   transition: transform 0.3s ease;
 }
 
-.social-icon:hover .social-icon-img {
-  filter: brightness(0) saturate(100%) invert(39%) sepia(96%) saturate(749%) hue-rotate(343deg) brightness(95%) contrast(95%);
+.side-social-icon:hover .side-social-icon-img {
   transform: scale(1.1);
 }

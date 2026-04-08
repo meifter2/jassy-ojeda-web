@@ -20,37 +20,37 @@ export class ColeccionDeSuenosComponent implements OnInit {
 
   galleryImages = [
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/coleccion-de-suenos.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/coleccion-de-suenos.webp', 
       alt: 'Portada álbum',
       title: 'Portada Principal',
       description: 'La imagen que define el universo de Colección de Sueños'
     },
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/golden.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/golden.webp', 
       alt: 'Golden',
       title: 'Golden',
       description: 'Single destacado del álbum'
     },
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/has-roto-mi-corazon.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/has-roto-mi-corazon.webp', 
       alt: 'Has Roto Mi Corazón',
       title: 'Has Roto Mi Corazón',
       description: 'La canción más personal del álbum'
     },
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/intenso.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/intenso.webp', 
       alt: 'Intenso',
       title: 'Intenso',
       description: 'Explorando emociones profundas'
     },
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/otro-lugar.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/otro-lugar.webp', 
       alt: 'Otro Lugar',
       title: 'Otro Lugar',
       description: 'Buscando refugio en la música'
     },
     { 
-      src: 'assets/images/caratulas/coleccion-de-suenos/antes-de-caer.jpg', 
+      src: 'assets/images/caratulas/coleccion-de-suenos/antes-de-caer.webp', 
       alt: 'Antes de Caer',
       title: 'Antes de Caer',
       description: 'El momento previo al cambio'

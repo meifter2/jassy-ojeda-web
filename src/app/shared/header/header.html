@@ -1,17 +1,5 @@
 <header class="main-header">
-  <div class="header-side header-side--left"></div>
-
-  <div class="header-center">
-    <a [routerLink]="['/']" fragment="hero" class="logo" aria-label="Ir al inicio">
-      <img
-        src="assets/images/logo-jassy.png"
-        alt="Jassy Ojeda"
-        class="logo-image"
-      >
-    </a>
-  </div>
-
-  <div class="header-side header-side--right">
+  <div class="header-side header-side--left">
     <!-- REDES -->
     <div class="header-socials">
       <a
@@ -34,7 +22,19 @@
         <img src="assets/images/spotify.svg" class="social-icon-img">
       </a>
     </div>
+  </div>
 
+  <div class="header-center">
+    <a [routerLink]="['/']" fragment="hero" class="logo" aria-label="Ir al inicio">
+      <img
+        src="assets/images/logo-jassy.png"
+        alt="Jassy Ojeda"
+        class="logo-image"
+      >
+    </a>
+  </div>
+
+  <div class="header-side header-side--right">
     <!-- HAMBURGUESA -->
     <button
       type="button"
@@ -123,15 +123,4 @@
       </li>
     </ul>
   </nav>
-
-  <!-- REDES EN PANEL -->
-  <div class="side-social-links">
-    <a href="https://www.instagram.com/jassy__ojeda/" target="_blank" class="side-social-icon">
-      <img src="assets/images/instagram.svg" class="side-social-icon-img">
-    </a>
-
-    <a href="https://open.spotify.com/" target="_blank" class="side-social-icon">
-      <img src="assets/images/spotify.svg" class="side-social-icon-img">
-    </a>
-  </div>
 </aside>

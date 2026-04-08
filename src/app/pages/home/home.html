@@ -1,19 +1,15 @@
 <section class="hero-section" id="hero">
-    
-    <div class="hero-floating-elements">
-        <p class="available-text">YA DISPONIBLE</p>
-        
-        <a href="#https://open.spotify.com/intl-es/album/4ZtsDcf9EpWIhpgyFvwsOG" target="_blank" class="spotify-link">
-            <img 
-                src="assets/images/Logos/Spotify-logo-yellow.png" 
-                alt="Spotify Logo" 
-                class="spotify-logo-floating"
-            >
-        </a>
-    </div>
-    <div class="hero-content">
-        <h2>SE FUE EL VERANO</h2>
-        </div>
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="assets/images/Portadas/jassy_poster_visuales.webp"
+  >
+    <source src="assets/images/Portadas/jassy_visuales.mp4" type="video/mp4">
+  </video>
 </section>
 
 <section class="musicIframe" id="musica">
@@ -27,7 +23,7 @@
         <iframe 
           data-testid="embed-iframe" 
           style="border-radius:12px" 
-          src="https://open.spotify.com/embed/album/55lDCeB8KRNIUClJWmdc4f?utm_source=generator" 
+          src="https://open.spotify.com/embed/track/5G1Rb5aDclBWepyGYTzv5H?utm_source=generator" 
           width="100%" 
           height="352" 
           frameBorder="0" 
@@ -40,14 +36,14 @@
 
     <!-- COLUMNA DERECHA: VIDEO ALTA MAR -->
     <div class="music-col music-col--video">
-      <h3 class="music-heading">Brasil Para Vivir – Jassy Ojeda</h3>
+      <h3 class="music-heading">BÁILALO – Jassy Ojeda</h3>
 
       <div class="media-wrapper media-wrapper--right">
         <iframe
           width="100%"
           height="500"
-          src="https://www.youtube.com/embed/lfbionybFSs?si=6IaIa-hG6o3pUsWG" 
-          title="Jassy Ojeda - Brasil Para Vivir"
+          src="https://www.youtube.com/embed/huDDd77-zs8?si=XEvSUivnGvDC-ue2" 
+          title="Jassy Ojeda - BÁILALO"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -67,18 +63,10 @@
 
     <!-- 🎟 Próximo concierto -->
 
-
-
-
-
-
-
-
-
-
-
       <li class="gig gig--upcoming">
         <div class="gig__date">
+          <span class="gig__day">18</span>
+          <span class="gig__month">ABR</span>
           <span class="gig__day">18</span>
           <span class="gig__month">ABR</span>
           <span class="gig__year">2026</span>
@@ -87,9 +75,12 @@
         <div class="gig__info">
           <p class="gig__city">Albacete, España</p>
           <p class="gig__venue">Sala Sideral</p>
+          <p class="gig__city">Albacete, España</p>
+          <p class="gig__venue">Sala Sideral</p>
         </div>
 
         <div class="gig__cta">
+          <a href="https://entradium.com/es/events/jassy-ojeda-en-albacete" target="_blank" class="gig__btn">
           <a href="https://entradium.com/es/events/jassy-ojeda-en-albacete" target="_blank" class="gig__btn">
             Entradas
           </a>
@@ -100,23 +91,26 @@
         <div class="gig__date">
           <span class="gig__day">19</span>
           <span class="gig__month">ABR</span>
+          <span class="gig__day">19</span>
+          <span class="gig__month">ABR</span>
           <span class="gig__year">2026</span>
         </div>
 
         <div class="gig__info">
           <p class="gig__city">Jaén, España</p>
-          <p class="gig__venue">NO TENGO NI PUTA IDEA</p>
+          <p class="gig__venue">Garage Bar Elviris</p>
         </div>
 
         <div class="gig__cta">
-          <a href="https://tuenlaceaentradas.com" target="_blank" class="gig__btn">
-            Entradas
+          <a target="_blank" class="gig__btn">
+            Acceso gratuito
           </a>
         </div>
       </li>
 
       <li class="gig gig--upcoming">
         <div class="gig__date">
+          <span class="gig__day">2</span>
           <span class="gig__day">2</span>
           <span class="gig__month">MAY</span>
           <span class="gig__year">2026</span>
@@ -125,9 +119,12 @@
         <div class="gig__info">
           <p class="gig__city">Madrid, España</p>
           <p class="gig__venue">Sala Silikona</p>
+          <p class="gig__city">Madrid, España</p>
+          <p class="gig__venue">Sala Silikona</p>
         </div>
 
         <div class="gig__cta">
+          <a href="https://entradium.com/events/girando-por-salas-2026-jassy-ojeda" target="_blank" class="gig__btn">
           <a href="https://entradium.com/events/girando-por-salas-2026-jassy-ojeda" target="_blank" class="gig__btn">
             Entradas
           </a>
@@ -152,15 +149,18 @@
           </a>
         </div>
       </li>
-
+      
       <li class="gig gig--upcoming">
         <div class="gig__date">
+          <span class="gig__day">9</span>
           <span class="gig__day">9</span>
           <span class="gig__month">MAY</span>
           <span class="gig__year">2026</span>
         </div>
 
         <div class="gig__info">
+          <p class="gig__city">Gandía, España</p>
+          <p class="gig__venue">Teatre del Raval</p>
           <p class="gig__city">Gandía, España</p>
           <p class="gig__venue">Teatre del Raval</p>
         </div>
@@ -176,17 +176,19 @@
         <div class="gig__date">
           <span class="gig__day">5</span>
           <span class="gig__month">JUN</span>
+          <span class="gig__day">5</span>
+          <span class="gig__month">JUN</span>
           <span class="gig__year">2026</span>
         </div>
 
         <div class="gig__info">
-          <p class="gig__city">Huelva, España</p>
-          <p class="gig__venue">NO TENGO NI PUTA IDEA</p>
+          <p class="gig__city">Isla Cristina (Huelva), España</p>
+          <p class="gig__venue">Isla Sónica</p>
         </div>
 
         <div class="gig__cta">
-          <a href="https://tuenlaceaentradas.com" target="_blank" class="gig__btn">
-            Entradas
+          <a target="_blank" class="gig__btn">
+            No disponible
           </a>
         </div>
       </li>
@@ -195,25 +197,27 @@
         <div class="gig__date">
           <span class="gig__day">21</span>
           <span class="gig__month">JUN</span>
+          <span class="gig__day">21</span>
+          <span class="gig__month">JUN</span>
           <span class="gig__year">2026</span>
         </div>
 
         <div class="gig__info">
           <p class="gig__city">Málaga, España</p>
           <p class="gig__venue">Cochera Cabaret</p>
+          <p class="gig__city">Málaga, España</p>
+          <p class="gig__venue">Cochera Cabaret</p>
         </div>
 
         <div class="gig__cta">
+          <a href="https://lacocheraentradas.com/shows/details/2509/jassy-ojeda" target="_blank" class="gig__btn">
           <a href="https://lacocheraentradas.com/shows/details/2509/jassy-ojeda" target="_blank" class="gig__btn">
             Entradas
           </a>
         </div>
       </li>
 
-
-      <!-- CONCIERTOS REALIZADOS -->
-
-      <li class="gig gig--upcoming">
+      <li class="gig gig--past">
         <div class="gig__date">
           <span class="gig__day">4</span>
           <span class="gig__month">ABR</span>
@@ -227,11 +231,12 @@
 
         <div class="gig__cta">
             <span class="gig__badge">Concierto realizado</span>
+            <span class="gig__badge">Concierto realizado</span>
         </div>
       </li>
 
 
-      <li class="gig gig--upcoming">
+      <li class="gig gig--past">
         <div class="gig__date">
           <span class="gig__day">3</span>
           <span class="gig__month">ABR</span>
@@ -245,10 +250,11 @@
 
         <div class="gig__cta">
             <span class="gig__badge">Concierto realizado</span>
+            <span class="gig__badge">Concierto realizado</span>
         </div>
       </li>
 
-      <li class="gig gig--upcoming">
+      <li class="gig gig--past">
         <div class="gig__date">
           <span class="gig__day">28</span>
           <span class="gig__month">MAR</span>
@@ -261,6 +267,7 @@
         </div>
 
         <div class="gig__cta">
+            <span class="gig__badge">Concierto realizado</span>
             <span class="gig__badge">Concierto realizado</span>
         </div>
       </li>
@@ -409,7 +416,7 @@
 
   <!-- DERECHA: FOTO A SANGRE -->
   <div class="bio-right">
-    <img src="assets/images/DesdeElSur/jassy_solo.jpeg" alt="Jassy Ojeda">
+    <img src="assets/images/DesdeElSur/jassy_solo.webp" alt="Jassy Ojeda">
   </div>
 </section>
 
