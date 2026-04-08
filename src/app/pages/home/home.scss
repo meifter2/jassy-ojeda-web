@@ -8,37 +8,16 @@
   overflow: hidden;
   background: #000;
 
-  .hero-poster,
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
 
-  .hero-poster {
-    object-fit: cover;
-    z-index: 1;
-  }
-
-  .hero-video {
-    object-fit: cover;
-    z-index: 2;
-  }
-
-  /* Escritorio por defecto */
-  .hero-poster-desktop,
-  .hero-video-desktop {
-    display: block;
-  }
-
-  .hero-poster-mobile,
-  .hero-video-mobile {
-    display: none;
-  }
-
-  /* Overlay opcional para dar un poco más de acabado */
   &::after {
     content: "";
     position: absolute;
@@ -54,37 +33,7 @@
   }
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
-  .hero-section {
-    min-height: 560px;
-  }
-}
 
-/* Móvil */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 100svh;
-    min-height: 100svh;
-    max-height: 100svh;
-
-    .hero-poster-desktop,
-    .hero-video-desktop {
-      display: none;
-    }
-
-    .hero-poster-mobile,
-    .hero-video-mobile {
-      display: block;
-    }
-
-    .hero-poster-mobile,
-    .hero-video-mobile {
-      object-fit: cover;
-      object-position: center center;
-    }
-  }
-}
 
 
 /* 🎧 SECCIÓN MÚSICA: SPOTIFY + VIDEOCLIP 🎧 */
