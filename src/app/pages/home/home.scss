@@ -93,6 +93,7 @@
   background-color: #001219;
   padding: 80px 70px;
   color: $color-base-light;
+  overflow-x: hidden;
 }
 
 .music-layout {
@@ -108,6 +109,7 @@
   display: flex;
   flex-direction: column;
   align-self: start;
+  min-width: 0;
 }
 
 .music-heading {
@@ -132,6 +134,7 @@
 .media-wrapper {
   position: relative;
   margin-top: 0;
+  width: 100%;
 }
 
 .media-wrapper::before {
@@ -160,6 +163,7 @@
   z-index: 2;
   display: block;
   width: 100%;
+  max-width: 100%;
   border: none;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
@@ -176,6 +180,111 @@
   aspect-ratio: 16 / 9;
   height: auto;
   min-height: unset;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .musicIframe {
+    padding: 56px 24px;
+  }
+
+  .music-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .music-heading {
+    min-height: auto;
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .media-wrapper::before {
+    left: 14px !important;
+    right: 14px !important;
+    top: -14px;
+    bottom: -14px;
+    border-radius: 22px;
+  }
+
+  .music-col--spotify iframe {
+    height: 352px;
+    min-height: 352px;
+  }
+
+  .music-col--video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 640px) {
+  .musicIframe {
+    padding: 48px 16px;
+  }
+
+  .music-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .music-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .music-heading {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+
+  .media-wrapper {
+    width: 100%;
+  }
+
+  .media-wrapper::before {
+    left: 10px !important;
+    right: 10px !important;
+    top: -10px;
+    bottom: -10px;
+    border-radius: 20px;
+  }
+
+  .music-col--spotify iframe {
+    height: 332px;
+    min-height: 332px;
+  }
+
+  .music-col--video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+/* MÓVIL PEQUEÑO */
+@media (max-width: 420px) {
+  .musicIframe {
+    padding: 42px 14px;
+  }
+
+  .music-heading {
+    font-size: 1.6rem;
+  }
+
+  .media-wrapper::before {
+    left: 8px !important;
+    right: 8px !important;
+    top: -8px;
+    bottom: -8px;
+  }
+
+  .music-col--spotify iframe {
+    height: 320px;
+    min-height: 320px;
+  }
 }
 
 /* 🎫 SECCIÓN CONCIERTOS */
