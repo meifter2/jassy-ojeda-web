@@ -1,5 +1,30 @@
 <header class="main-header">
   <div class="header-side header-side--left">
+    <!-- HAMBURGUESA -->
+    <button
+      type="button"
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Abrir menú"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="header-center">
+    <a [routerLink]="['/']" fragment="hero" class="logo" aria-label="Ir al inicio">
+      <img
+        src="assets/images/logo-jassy.png"
+        alt="Jassy Ojeda"
+        class="logo-image"
+      >
+    </a>
+  </div>
+
+  <div class="header-side header-side--right">
     <!-- REDES -->
     <div class="header-socials">
       <a
@@ -22,31 +47,6 @@
         <img src="assets/images/spotify.svg" class="social-icon-img">
       </a>
     </div>
-  </div>
-
-  <div class="header-center">
-    <a [routerLink]="['/']" fragment="hero" class="logo" aria-label="Ir al inicio">
-      <img
-        src="assets/images/logo-jassy.png"
-        alt="Jassy Ojeda"
-        class="logo-image"
-      >
-    </a>
-  </div>
-
-  <div class="header-side header-side--right">
-    <!-- HAMBURGUESA -->
-    <button
-      type="button"
-      class="menu-toggle"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="menuOpen"
-      aria-label="Abrir menú"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
 </header>
 
@@ -95,7 +95,7 @@
           Contacto
         </a>
       </li>
-      
+
       <li class="side-nav-item side-nav-item--group">
         <span class="side-nav-title">Proyectos</span>
 
