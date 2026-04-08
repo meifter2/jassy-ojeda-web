@@ -1,12 +1,40 @@
 <section class="hero-section" id="hero">
+  <!-- Poster móvil, por debajo del vídeo -->
+  <img
+    src="assets/images/Portadas/jassy_portada_vertical.webp"
+    alt="Jassy Ojeda"
+    class="hero-poster hero-poster-mobile"
+  >
+
+  <!-- Poster escritorio, por debajo del vídeo -->
+  <img
+    src="assets/images/Portadas/jassy_poster_horizontal.webp"
+    alt="Jassy Ojeda"
+    class="hero-poster hero-poster-desktop"
+  >
+
+  <!-- Vídeo móvil -->
   <video
-    class="hero-video"
+    class="hero-video hero-video-mobile"
     autoplay
     muted
     loop
     playsinline
     preload="metadata"
-    poster="assets/images/Portadas/jassy_poster_visuales.webp"
+    poster="assets/images/Portadas/jassy_portada_vertical.webp"
+  >
+    <source src="assets/images/Portadas/jassy_visuales_vertical.mp4" type="video/mp4">
+  </video>
+
+  <!-- Vídeo escritorio -->
+  <video
+    class="hero-video hero-video-desktop"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="assets/images/Portadas/jassy_poster_horizontal.webp"
   >
     <source src="assets/images/Portadas/jassy_visuales.mp4" type="video/mp4">
   </video>
