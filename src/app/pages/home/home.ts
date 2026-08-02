@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CONCERTS } from './concerts.data';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrl: './home.scss'
 })
 export class HomeComponent implements OnInit {
+  readonly concerts = CONCERTS;
   isMobile = false;
 
   ngOnInit(): void {

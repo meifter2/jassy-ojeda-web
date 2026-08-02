@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:images:write": "node scripts/optimize-images.mjs --write",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -44,6 +46,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "sharp": "^0.35.3",
     "typescript": "~5.9.2"
   }
 }

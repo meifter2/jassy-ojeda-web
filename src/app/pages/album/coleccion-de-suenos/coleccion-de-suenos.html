@@ -65,6 +65,10 @@
             src="assets/images/Portadas/contra-portada-coleccion.webp" 
             alt="Foto del universo de Colección de Sueños"
             class="artwork-img"
+            width="902"
+            height="1094"
+            loading="lazy"
+            decoding="async"
           >
           <div class="artwork-overlay">
           </div>
@@ -80,62 +84,15 @@
 </section>
 
 <!-- 3. GALERÍA INTERACTIVA -->
-<section class="album-gallery" id="gallery">
-  <div class="container">
-    <div class="section-header">
-      <h2>Universo Visual</h2>
-      <p>Descubre las carátulas y el arte del álbum</p>
-      <div class="divider"></div>
-    </div>
-    
-    <div class="gallery-container">
-      <div class="gallery-main">
-        <div class="main-image">
-          <img 
-            [src]="selectedImage" 
-            [alt]="selectedAlt"
-            (load)="onImageLoad()"
-            [class.loaded]="imageLoaded"
-          >
-        </div>
-      </div>
-      
-      <div class="gallery-thumbnails">
-        <div 
-          *ngFor="let image of galleryImages; let i = index"
-          class="thumbnail-item"
-          [class.active]="selectedIndex === i"
-          (click)="selectImage(i)"
-        >
-          <img [src]="image.src" [alt]="image.alt">
-          <div class="thumbnail-overlay">
-            <i class="fas fa-search"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NUEVO: COLLAGE DE LA ETAPA -->
-    <div class="era-memories">
-      <div class="era-header">
-        <h3>Recuerdos de la etapa</h3>
-        <p>Momentos, ensayos y fotos detrás de “Colección de Sueños”.</p>
-      </div>
-
-      <div class="memories-collage">
-        <div
-          *ngFor="let memory of eraMemories"
-          class="memory-item"
-          [class.big]="memory.size === 'big'"
-          [class.wide]="memory.size === 'wide'"
-          [class.tall]="memory.size === 'tall'"
-        >
-          <img [src]="memory.src" [alt]="memory.alt" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-album-gallery
+  [images]="galleryImages"
+  [memories]="eraMemories"
+  heading="Universo Visual"
+  description="Descubre las carátulas y el arte del álbum"
+  memoriesHeading="Recuerdos de la etapa"
+  memoriesDescription="Momentos, ensayos y fotos detrás de “Colección de Sueños”."
+  variant="dreams"
+/>
 
 <!-- 4. ACERCA DEL ÁLBUM -->
 <section class="album-about">
@@ -200,7 +157,14 @@
       
       <div class="about-visual">
         <div class="visual-element">
-          <img src="assets/images/collages/ColeccionDeSuenos/jassy_naranja.webp" alt="Detalle del álbum">
+          <img
+            src="assets/images/collages/ColeccionDeSuenos/jassy_naranja.webp"
+            alt="Detalle del álbum"
+            width="1067"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="visual-decoration">
             <div class="decoration-circle"></div>
             <div class="decoration-circle"></div>

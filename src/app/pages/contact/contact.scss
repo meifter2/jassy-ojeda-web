@@ -80,6 +80,30 @@
         color: #333;
         transform: translateY(-3px);
       }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+        transform: none;
+      }
+    }
+
+    .submit-status {
+      min-height: 24px;
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      &--success {
+        color: #467a50;
+      }
+
+      &--error {
+        color: #a33d3d;
+      }
     }
   }
 }

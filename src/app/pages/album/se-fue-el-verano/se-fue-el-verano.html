@@ -64,6 +64,10 @@
             src="assets/images/collages/SeFueElVerano/jassycantar.webp"
             alt=""
             class="artwork-img"
+            width="720"
+            height="960"
+            loading="lazy"
+            decoding="async"
           />
           <div class="artwork-overlay summer-overlay">
             <div class="overlay-content">
@@ -76,64 +80,15 @@
 </section>
 
 <!-- 3. GALERÍA -->
-<section class="album-gallery summer-theme" id="gallery">
-  <div class="container">
-    <div class="section-header">
-      <h2>Bitácora de Salitre</h2>
-      <p>Instantáneas de un verano que se escapa entre los dedos</p>
-      <div class="divider summer-divider"></div>
-    </div>
-
-    <div class="gallery-container">
-      <!-- IZQUIERDA: carátula grande -->
-      <div class="gallery-main">
-        <div class="main-image summer-border">
-          <img
-            [src]="selectedImage"
-            [alt]="selectedAlt"
-            (load)="onImageLoad()"
-            [class.loaded]="imageLoaded"
-          />
-        </div>
-      </div>
-
-      <!-- DERECHA: miniaturas -->
-      <div class="gallery-thumbnails">
-        <button
-          *ngFor="let image of galleryImages; let i = index"
-          type="button"
-          class="thumbnail-item summer-thumb"
-          [class.active]="selectedIndex === i"
-          (click)="selectImage(i)"
-          [attr.aria-label]="'Seleccionar: ' + image.title"
-        >
-          <img [src]="image.src" [alt]="image.alt" />
-          <span class="thumb-glow"></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- COLLAGE DE LA ETAPA VERANIEGA -->
-    <div class="era-memories summer-memories">
-      <div class="era-header">
-        <h3>Flashbacks de Agosto</h3>
-        <p>Arena en los zapatos, grabaciones con calor y el adiós a la playa.</p>
-      </div>
-
-      <div class="memories-collage">
-        <div
-          *ngFor="let memory of eraMemories"
-          class="memory-item summer-tilt"
-          [class.big]="memory.size === 'big'"
-          [class.wide]="memory.size === 'wide'"
-          [class.tall]="memory.size === 'tall'"
-        >
-          <img [src]="memory.src" [alt]="memory.alt" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-album-gallery
+  [images]="galleryImages"
+  [memories]="eraMemories"
+  heading="Bitácora de Salitre"
+  description="Instantáneas de un verano que se escapa entre los dedos"
+  memoriesHeading="Flashbacks de Agosto"
+  memoriesDescription="Arena en los zapatos, grabaciones con calor y el adiós a la playa."
+  variant="summer"
+/>
 
 <!-- 4. ABOUT -->
 <section class="album-about summer-about">
@@ -202,7 +157,14 @@
 
       <div class="about-visual">
         <div class="visual-element summer-element">
-          <img src="assets/images/collages/SeFueElVerano/altamar.webp" alt="Detalle marítimo del EP" />
+          <img
+            src="assets/images/collages/SeFueElVerano/altamar.webp"
+            alt="Detalle marítimo del EP"
+            width="1128"
+            height="2000"
+            loading="lazy"
+            decoding="async"
+          />
           <div class="visual-decoration">
             <div class="decoration-circle water-bubble"></div>
             <div class="decoration-circle water-bubble"></div>

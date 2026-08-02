@@ -1,27 +1,40 @@
-import { Component } from '@angular/core';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { Component, inject } from '@angular/core';
+
+import { ContactService } from './contact.service';
+
+type SubmitStatus = 'idle' | 'success' | 'error';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.html',
-  styleUrls: ['./contact.scss']
+  styleUrls: ['./contact.scss'],
 })
 export class ContactoComponent {
+  private readonly contactService = inject(ContactService);
 
-  public sendEmail(e: Event) {
-    e.preventDefault();
+  isSubmitting = false;
+  submitStatus: SubmitStatus = 'idle';
 
-    const serviceID = 'service_g3othsh';
-    const templateID = 'template_bn8nkvo';
-    const publicKey = 'HSyyE82N248F9D248'; // <--- PEGA TU PUBLIC KEY AQUÍ
+  async sendEmail(event: SubmitEvent): Promise<void> {
+    event.preventDefault();
 
-    emailjs.sendForm(serviceID, templateID, e.target as HTMLFormElement, publicKey)
-      .then((result: EmailJSResponseStatus) => {
-        alert('¡Mensaje enviado con éxito! 🌸');
-        (e.target as HTMLFormElement).reset();
-      }, (error: any) => {
-        alert('Hubo un error al enviar el mensaje. Revisa los permisos de Gmail.');
-        console.error('Error de EmailJS:', error);
-      });
+    if (this.isSubmitting) {
+      return;
+    }
+
+    const form = event.currentTarget as HTMLFormElement;
+    this.isSubmitting = true;
+    this.submitStatus = 'idle';
+
+    try {
+      await this.contactService.send(form);
+      form.reset();
+      this.submitStatus = 'success';
+    } catch (error: unknown) {
+      console.error('Error de EmailJS:', error);
+      this.submitStatus = 'error';
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 }

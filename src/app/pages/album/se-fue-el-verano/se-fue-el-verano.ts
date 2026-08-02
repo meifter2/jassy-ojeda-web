@@ -1,28 +1,15 @@
-// src/app/pages/album/se-fue-el-verano/se-fue-el-verano.component.ts
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-type GalleryImage = {
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-};
-
-type MemoryImage = {
-  src: string;
-  alt: string;
-  size: 'big' | 'wide' | 'normal' | 'tall';
-};
+import { Component } from '@angular/core';
+import { AlbumGalleryComponent } from '../shared/album-gallery/album-gallery';
+import { GalleryImage, MemoryImage } from '../shared/album-gallery/album-gallery.models';
 
 @Component({
   selector: 'app-se-fue-el-verano',
   templateUrl: './se-fue-el-verano.html',
   styleUrls: ['./se-fue-el-verano.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [AlbumGalleryComponent],
 })
-export class SeFueElVeranoComponent implements OnInit {
+export class SeFueElVeranoComponent {
   public galleryImages: GalleryImage[] = [
     {
       src: 'assets/images/caratulas/se-fue-el-verano/SeFueElVerano.webp',
@@ -60,49 +47,11 @@ export class SeFueElVeranoComponent implements OnInit {
     { src: 'assets/images/collages/SeFueElVerano/jassymesa.webp', alt:"", size: 'big' }
   ];
 
-  public selectedIndex = 0;
-  public selectedImage = this.galleryImages[0]?.src ?? '';
-  public selectedAlt = this.galleryImages[0]?.alt ?? '';
-  public selectedTitle = this.galleryImages[0]?.title ?? '';
-  public selectedDescription = this.galleryImages[0]?.description ?? '';
-  public imageLoaded = false;
-
-  ngOnInit(): void {
-    this.preloadImages();
-  }
-
   public scrollToSpotify(): void {
     document.getElementById('listen')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   public openGallery(): void {
     document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  public selectImage(index: number): void {
-    if (index < 0 || index >= this.galleryImages.length) return;
-
-    this.selectedIndex = index;
-    this.selectedImage = this.galleryImages[index].src;
-    this.selectedAlt = this.galleryImages[index].alt;
-    this.selectedTitle = this.galleryImages[index].title;
-    this.selectedDescription = this.galleryImages[index].description;
-
-    this.imageLoaded = false;
-  }
-
-  public onImageLoad(): void {
-    this.imageLoaded = true;
-  }
-
-  private preloadImages(): void {
-    for (const img of this.galleryImages) {
-      const i = new Image();
-      i.src = img.src;
-    }
-    for (const mem of this.eraMemories) {
-      const i = new Image();
-      i.src = mem.src;
-    }
   }
 }

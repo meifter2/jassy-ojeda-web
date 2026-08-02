@@ -1,0 +1,80 @@
+<section
+  id="gallery"
+  class="album-gallery"
+  [class.album-gallery--dreams]="variant() === 'dreams'"
+  [class.album-gallery--summer]="variant() === 'summer'"
+>
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ heading() }}</h2>
+      <p>{{ description() }}</p>
+      <div class="divider" [class.summer-divider]="variant() === 'summer'"></div>
+    </div>
+
+    <div class="gallery-container">
+      <div class="gallery-main">
+        <div class="main-image" [class.summer-border]="variant() === 'summer'">
+          @if (selectedImage(); as image) {
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              loading="lazy"
+              decoding="async"
+              (load)="onImageLoad()"
+              [class.loaded]="imageLoaded()"
+            />
+          }
+        </div>
+      </div>
+
+      <div class="gallery-thumbnails">
+        @for (image of images(); track image.src; let index = $index) {
+          @if (variant() === 'summer') {
+            <button
+              type="button"
+              class="thumbnail-item summer-thumb"
+              [class.active]="selectedIndex() === index"
+              (click)="selectImage(index)"
+              [attr.aria-label]="'Seleccionar: ' + image.title"
+            >
+              <img [src]="image.src" [alt]="image.alt" loading="lazy" decoding="async" />
+              <span class="thumb-glow"></span>
+            </button>
+          } @else {
+            <div
+              class="thumbnail-item"
+              [class.active]="selectedIndex() === index"
+              (click)="selectImage(index)"
+            >
+              <img [src]="image.src" [alt]="image.alt" loading="lazy" decoding="async" />
+              <div class="thumbnail-overlay">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="era-memories" [class.summer-memories]="variant() === 'summer'">
+      <div class="era-header">
+        <h3>{{ memoriesHeading() }}</h3>
+        <p>{{ memoriesDescription() }}</p>
+      </div>
+
+      <div class="memories-collage">
+        @for (memory of memories(); track memory.src) {
+          <div
+            class="memory-item"
+            [class.summer-tilt]="variant() === 'summer'"
+            [class.big]="memory.size === 'big'"
+            [class.wide]="memory.size === 'wide'"
+            [class.tall]="memory.size === 'tall'"
+          >
+            <img [src]="memory.src" [alt]="memory.alt" loading="lazy" decoding="async" />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

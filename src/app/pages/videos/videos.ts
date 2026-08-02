@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { VIDEOS, Video } from './videos.data';
+
+type VideoViewModel = Omit<Video, 'embedUrl'> & {
+  embedUrl: SafeResourceUrl;
+};
 
 @Component({
   selector: 'app-videos',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './videos.html',
-  styleUrls: ['./videos.scss'], // 👈 con "s"
+  styleUrl: './videos.scss',
 })
-export class VideosComponent {}
+export class VideosComponent {
+  private readonly sanitizer = inject(DomSanitizer);
+
+  public readonly videos: readonly VideoViewModel[] = VIDEOS.map((video) => ({
+    ...video,
+    embedUrl: this.sanitizer.bypassSecurityTrustResourceUrl(video.embedUrl),
+  }));
+}

@@ -2,11 +2,13 @@
   <div class="header-side header-side--left">
     <!-- HAMBURGUESA -->
     <button
+      #menuToggle
       type="button"
       class="menu-toggle"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen"
-      aria-label="Abrir menú"
+      [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
+      aria-controls="main-navigation"
     >
       <span></span>
       <span></span>
@@ -20,6 +22,8 @@
         src="assets/images/logo-jassy.png"
         alt="Jassy Ojeda"
         class="logo-image"
+        width="531"
+        height="171"
       >
     </a>
   </div>
@@ -34,7 +38,7 @@
         class="social-icon"
         aria-label="Instagram"
       >
-        <img src="assets/images/instagram.svg" class="social-icon-img">
+        <img src="assets/images/instagram.svg" alt="" class="social-icon-img">
       </a>
 
       <a
@@ -44,7 +48,7 @@
         class="social-icon"
         aria-label="Spotify"
       >
-        <img src="assets/images/spotify.svg" class="social-icon-img">
+        <img src="assets/images/spotify.svg" alt="" class="social-icon-img">
       </a>
     </div>
   </div>
@@ -55,12 +59,21 @@
   class="menu-overlay"
   [class.is-open]="menuOpen"
   (click)="closeMenu()"
+  aria-hidden="true"
 ></div>
 
 <!-- PANEL LATERAL -->
-<aside class="side-panel" [class.is-open]="menuOpen">
+<aside
+  id="main-navigation"
+  class="side-panel"
+  [class.is-open]="menuOpen"
+  [attr.aria-hidden]="!menuOpen"
+  [attr.inert]="menuOpen ? null : ''"
+  aria-label="Navegación principal"
+>
   <div class="side-panel-header">
     <button
+      #closeButton
       type="button"
       class="close-btn"
       (click)="closeMenu()"

@@ -160,7 +160,7 @@
 }
 
 .side-nav-item--group {
-  margin-top: 18;
+  margin-top: 18px;
 }
 
 .side-nav-link,
@@ -236,4 +236,16 @@
 
 .side-social-icon:hover .side-social-icon-img {
   transform: scale(1.1);
+}
+
+.menu-toggle,
+.close-btn,
+.logo,
+.social-icon,
+.side-nav-link,
+.side-subnav-link {
+  &:focus-visible {
+    outline: 3px solid $color-accent-b;
+    outline-offset: 4px;
+  }
 }
