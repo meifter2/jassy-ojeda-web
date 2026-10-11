@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { HomeComponent } from './home';
 
 describe('HomeComponent', () => {
@@ -8,6 +9,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
@@ -34,8 +36,8 @@ describe('HomeComponent', () => {
 
     expect(heroImage.getAttribute('fetchpriority')).toBe('high');
     expect(heroImage.loading).toBe('eager');
-    expect(heroImage.getAttribute('width')).toBe('1920');
-    expect(heroImage.getAttribute('height')).toBe('640');
+    expect(heroImage.getAttribute('width')).toBe('1067');
+    expect(heroImage.getAttribute('height')).toBe('1600');
     expect(biographyImage.loading).toBe('lazy');
     expect(biographyImage.decoding).toBe('async');
   });

@@ -56,11 +56,14 @@
   object-fit: contain;
 
   filter: brightness(0);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 .social-icon:hover .social-icon-img {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(75%) saturate(2872%) hue-rotate(350deg) brightness(92%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(75%) saturate(2872%) hue-rotate(350deg)
+    brightness(92%) contrast(95%);
   transform: scale(1.14);
 }
 
@@ -172,7 +175,9 @@
   font-weight: 800;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
   margin: 0;
 }
 
@@ -207,7 +212,9 @@
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .side-subnav-link:visited {
@@ -247,5 +254,72 @@
   &:focus-visible {
     outline: 3px solid $color-accent-b;
     outline-offset: 4px;
+  }
+}
+
+.main-header {
+  background: #f4efdf;
+  box-shadow: none;
+  padding: 0 4vw;
+}
+.logo-image {
+  height: 52px;
+}
+.desktop-nav {
+  display: flex;
+  gap: 24px;
+}
+.desktop-nav a,
+.header-contact {
+  color: #152c2a;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.desktop-nav a:hover,
+.header-contact:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.header-side--right {
+  gap: 24px;
+}
+.menu-toggle {
+  display: none;
+}
+.social-icon {
+  display: inline-flex;
+  padding: 10px;
+}
+.header-socials {
+  gap: 0;
+}
+@media (max-width: 1050px) {
+  .desktop-nav {
+    gap: 14px;
+  }
+  .header-contact {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .main-header {
+    padding: 0 12px;
+  }
+  .logo-image {
+    height: 46px;
+  }
+  .social-icon {
+    padding: 7px;
+  }
+  .social-icon-img {
+    width: 20px;
+    height: 20px;
   }
 }

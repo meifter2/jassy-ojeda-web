@@ -1,5 +1,10 @@
 <header class="main-header">
   <div class="header-side header-side--left">
+    <nav class="desktop-nav" aria-label="Navegación de escritorio">
+      <a [routerLink]="['/']" fragment="musica">Música</a
+      ><a [routerLink]="['/']" fragment="conciertos">Conciertos</a
+      ><a [routerLink]="['/']" fragment="bio">Sobre mí</a><a routerLink="/videos">Vídeos</a>
+    </nav>
     <!-- HAMBURGUESA -->
     <button
       #menuToggle
@@ -24,12 +29,12 @@
         class="logo-image"
         width="531"
         height="171"
-      >
+      />
     </a>
   </div>
 
   <div class="header-side header-side--right">
-    <!-- REDES -->
+    <a routerLink="/contacto" class="header-contact">Contacto ↗</a>
     <div class="header-socials">
       <a
         href="https://www.instagram.com/jassy__ojeda/"
@@ -38,7 +43,7 @@
         class="social-icon"
         aria-label="Instagram"
       >
-        <img src="assets/images/instagram.svg" alt="" class="social-icon-img">
+        <img src="assets/images/instagram.svg" alt="" class="social-icon-img" />
       </a>
 
       <a
@@ -48,19 +53,14 @@
         class="social-icon"
         aria-label="Spotify"
       >
-        <img src="assets/images/spotify.svg" alt="" class="social-icon-img">
+        <img src="assets/images/spotify.svg" alt="" class="social-icon-img" />
       </a>
     </div>
   </div>
 </header>
 
 <!-- OVERLAY -->
-<div
-  class="menu-overlay"
-  [class.is-open]="menuOpen"
-  (click)="closeMenu()"
-  aria-hidden="true"
-></div>
+<div class="menu-overlay" [class.is-open]="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
 
 <!-- PANEL LATERAL -->
 <aside
@@ -98,15 +98,11 @@
       </li>
 
       <li class="side-nav-item">
-        <a routerLink="/videos" class="side-nav-link" (click)="closeMenu()">
-          Vídeos
-        </a>
+        <a routerLink="/videos" class="side-nav-link" (click)="closeMenu()"> Vídeos </a>
       </li>
 
       <li class="side-nav-item">
-        <a routerLink="/contacto" class="side-nav-link" (click)="closeMenu()">
-          Contacto
-        </a>
+        <a routerLink="/contacto" class="side-nav-link" (click)="closeMenu()"> Contacto </a>
       </li>
 
       <li class="side-nav-item side-nav-item--group">
@@ -124,11 +120,7 @@
           </li>
 
           <li>
-            <a
-              routerLink="/album/se-fue-el-verano"
-              class="side-subnav-link"
-              (click)="closeMenu()"
-            >
+            <a routerLink="/album/se-fue-el-verano" class="side-subnav-link" (click)="closeMenu()">
               Se Fue El Verano
             </a>
           </li>
