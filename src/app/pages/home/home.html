@@ -1,139 +1,194 @@
-<section id="hero" class="hero-section">
-  <picture>
-    <source
-      media="(max-width: 768px)"
-      srcset="assets/images/Portadas/portada-ver2.webp"
-      width="1024"
-      height="1536"
-    >
+<section id="hero" class="hero-section" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow">MÁLAGA · MÚSICA SIN FRONTERAS</p>
+    <h1 id="hero-title">Del sur.<br />De dentro.<br /><em>Para sentir.</em></h1>
+    <p class="hero-description">
+      El universo de Jassy Ojeda. Pop, raíz y canciones que se quedan contigo.
+    </p>
+    <div class="hero-actions">
+      <a
+        class="button button--dark"
+        href="https://open.spotify.com/intl-es/artist/6Iv6qiJGXQilJkBitIT5us"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Escuchar a Jassy <span aria-hidden="true">↗</span></a
+      >
+      <a class="text-link" href="#conciertos">Ver conciertos <span aria-hidden="true">↓</span></a>
+    </div>
+    <span class="hero-note">POP / FLAMENCO / R&amp;B / SALSA</span>
+  </div>
+  <div class="hero-visual">
     <img
-      src="assets/images/Portadas/portada-hor2.webp"
-      alt="Portada de Jassy"
+      ngSrc="assets/images/DesdeElSur/jassy_solo.webp"
+      alt="Jassy Ojeda al aire libre, bajo el sol"
       class="hero-image"
-      width="1920"
-      height="640"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
+      width="1067"
+      height="1600"
+      priority
+    />
+    <span class="photo-caption">JASSY OJEDA · DESDE EL SUR</span>
+    <span class="hero-stamp" aria-hidden="true">HECHO<br />CON ALMA ↗</span>
+  </div>
+</section>
+<div class="sound-strip" aria-hidden="true">
+  <span>CANCIONES HONESTAS</span><span>✳</span><span>RAÍCES DEL SUR</span><span>✳</span
+  ><span>ENERGÍA EN DIRECTO</span><span>✳</span>
+</div>
+
+<section class="music-section section-shell" id="musica" aria-labelledby="music-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">01 / EL UNIVERSO SONORO</p>
+      <h2 id="music-title">Dale al <em>play.</em></h2>
+    </div>
+    <a routerLink="/videos" class="text-link">Todos los vídeos ↗</a>
+  </div>
+  <div class="release-grid">
+    <a routerLink="/album/se-fue-el-verano" class="release-card"
+      ><div class="release-art">
+        <img
+          ngSrc="assets/images/Portadas/SeFueElVerano.webp"
+          alt="Portada de Se Fue El Verano"
+          width="1024"
+          height="1024"
+        /><span aria-hidden="true">↗</span>
+      </div>
+      <div class="release-meta">
+        <div>
+          <p class="eyebrow">EP</p>
+          <h3>Se Fue El Verano</h3>
+        </div>
+        <span>Explorar ↗</span>
+      </div></a
     >
-  </picture>
-</section>
-
-<section class="musicIframe" id="musica">
+    <a routerLink="/album/coleccion-de-suenos" class="release-card"
+      ><div class="release-art">
+        <img
+          ngSrc="assets/images/Portadas/ColeccionDeSuenos.webp"
+          alt="Portada de Colección de Sueños"
+          width="2560"
+          height="1798"
+        /><span aria-hidden="true">↗</span>
+      </div>
+      <div class="release-meta">
+        <div>
+          <p class="eyebrow">ÁLBUM</p>
+          <h3>Colección de Sueños</h3>
+        </div>
+        <span>Explorar ↗</span>
+      </div></a
+    >
+  </div>
   <div class="music-layout">
-
-    <!-- COLUMNA IZQUIERDA: SPOTIFY -->
-    <div class="music-col music-col--spotify">
-      <h3 class="music-heading">Spotify</h3>
-
-      <div class="media-wrapper media-wrapper--left">
-        <iframe 
-          data-testid="embed-iframe" 
-          style="border-radius:12px" 
-          src="https://open.spotify.com/embed/album/53EB8akTh9w2Hu0KHBvdKb?utm_source=generator&si=48c71fd822f74d72" 
-          width="100%" 
-          frameBorder="0" 
-          allowfullscreen="" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-        </iframe>
-      </div>
+    <div class="music-col">
+      <p class="eyebrow">ESCUCHA EL DISCO</p>
+      <iframe
+        title="Se Fue El Verano en Spotify"
+        src="https://open.spotify.com/embed/album/53EB8akTh9w2Hu0KHBvdKb?utm_source=generator"
+        width="100%"
+        height="352"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
     </div>
-
-    <!-- COLUMNA DERECHA: VIDEO ALTA MAR -->
-    <div class="music-col music-col--video">
-      <h3 class="music-heading">LA ISLA DEL ENCANTO – Jassy Ojeda</h3>
-
-      <div class="media-wrapper media-wrapper--right">
-        <iframe
-          width="100%"
-          height="500"
-          src="https://www.youtube.com/embed/_qJ9Oa-i498?si=iyd7PvXUCjYwIVzd" 
-          title="Jassy Ojeda - LA ISLA DEL ENCANTO"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <div class="music-col">
+      <p class="eyebrow">EN IMÁGENES · LA ISLA DEL ENCANTO</p>
+      <iframe
+        title="Jassy Ojeda - LA ISLA DEL ENCANTO"
+        src="https://www.youtube.com/embed/_qJ9Oa-i498"
+        width="100%"
+        height="352"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
     </div>
-
   </div>
 </section>
 
-<section class="gigs-section" id="conciertos">
-  <div class="gigs-container">
-
-    <h2 class="gigs-title">Conciertos</h2>
-
-    <ul class="gigs-list">
-      @for (concert of concerts; track concert.id) {
-        <li
-          class="gig"
-          [class.gig--upcoming]="concert.status === 'upcoming'"
-          [class.gig--past]="concert.status === 'past'"
-        >
-          <div class="gig__date">
-            <span class="gig__day">{{ concert.day }}</span>
-            <span class="gig__month">{{ concert.month }}</span>
-            <span class="gig__year">{{ concert.year }}</span>
+<section class="gigs-section section-shell" id="conciertos" aria-labelledby="gigs-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">02 / NOS VEMOS DELANTE DEL ESCENARIO</p>
+      <h2 id="gigs-title">Esto se vive<br /><em>en directo.</em></h2>
+    </div>
+    <p class="section-aside">Una banda. Toda la energía.<br />Y tú al otro lado.</p>
+  </div>
+  @if (!hasUpcomingConcerts) {
+    <div class="tour-notice">
+      <span>Nuevas fechas, próximamente.</span
+      ><a href="https://www.instagram.com/jassy__ojeda/" target="_blank" rel="noopener noreferrer"
+        >Sigue las novedades ↗</a
+      >
+    </div>
+  }
+  <ul class="gigs-list">
+    @for (concert of concerts; track concert.id) {
+      <li
+        class="gig"
+        [class.gig--upcoming]="concert.status === 'upcoming'"
+        [class.gig--past]="concert.status === 'past'"
+      >
+        <div class="gig__date">
+          <span class="gig__day">{{ concert.day }}</span>
+          <div>
+            <span class="gig__month">{{ concert.month }}</span
+            ><span class="gig__year">{{ concert.year }}</span>
           </div>
-
-          <div class="gig__info">
-            <p class="gig__city">{{ concert.city }}</p>
-            <p class="gig__venue">{{ concert.venue }}</p>
-          </div>
-
-          <div class="gig__cta">
-            @if (concert.status === 'upcoming') {
-              @if (concert.ticketUrl) {
-                <a
-                  [href]="concert.ticketUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="gig__btn"
-                >
-                  Entradas
-                </a>
-              } @else {
-                <span class="gig__btn">Entradas próximamente</span>
-              }
+        </div>
+        <div class="gig__info">
+          <p class="gig__venue">{{ concert.venue }}</p>
+          <p class="gig__city">{{ concert.city }}</p>
+        </div>
+        <div class="gig__cta">
+          @if (concert.status === 'upcoming') {
+            @if (concert.ticketUrl) {
+              <a
+                [href]="concert.ticketUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gig__btn"
+                >Entradas ↗</a
+              >
             } @else {
-              <span class="gig__badge">Concierto realizado</span>
+              <span class="gig__badge">Entradas próximamente</span>
             }
-          </div>
-        </li>
-      }
-    </ul>
-
-  </div>
+          } @else {
+            <span class="gig__badge">Concierto realizado</span>
+          }
+        </div>
+      </li>
+    }
+  </ul>
 </section>
-
 <section class="bio-section" id="bio">
   <!-- IZQUIERDA: TEXTO -->
   <div class="bio-left">
     <div class="bio-left-inner">
-      <h2 class="bio-title">SOBRE MÍ</h2>
+      <p class="eyebrow">03 / DETRÁS DE LAS CANCIONES</p>
+      <h2 class="bio-title">Raíces del sur.<br /><em>Voz propia.</em></h2>
 
       <p class="bio-paragraph">
-        Jassy Ojeda es el proyecto musical de Pablo Miguel Ojeda Payá (Málaga, 2003). 
-        Desde la nueva ola de artistas emergentes malagueños, Jassy se ha hecho un hueco 
-        gracias a un sello muy personal: canciones vulnerables, letras honestas y un 
-        universo sonoro que se mueve entre el pop, el flamenco, el R&amp;B, la salsa y lo urbano.
+        Jassy Ojeda es el proyecto musical de Pablo Miguel Ojeda Payá (Málaga, 2003). Desde la nueva
+        ola de artistas emergentes malagueños, Jassy se ha hecho un hueco gracias a un sello muy
+        personal: canciones vulnerables, letras honestas y un universo sonoro que se mueve entre el
+        pop, el flamenco, el R&amp;B, la salsa y lo urbano.
       </p>
 
       <p class="bio-paragraph">
-        Formado en Interpretación Textual en la ESAD de Málaga, su amor por el cine y el teatro 
-        se nota en la narrativa de sus videoclips y en una puesta en escena muy cuidada. 
-        Crecido entre escenarios y música —es hijo del vocalista de Danza Invisible, Javier Ojeda—, 
-        ha sabido construir su propio lenguaje, acompañado por una banda que lleva sus canciones 
-        a directos intensos, explosivos y emotivos.
+        Formado en Interpretación Textual en la ESAD de Málaga, su amor por el cine y el teatro se
+        nota en la narrativa de sus videoclips y en una puesta en escena muy cuidada. Crecido entre
+        escenarios y música —es hijo del vocalista de Danza Invisible, Javier Ojeda—, ha sabido
+        construir su propio lenguaje, acompañado por una banda que lleva sus canciones a directos
+        intensos, explosivos y emotivos.
       </p>
 
       <p class="bio-paragraph bio-paragraph--highlight">
-        Tras su primer álbum, <em>“Colección de Sueños”</em>, donde explora el bloqueo emocional 
-        masculino desde una mirada sincera y crítica, Jassy presenta su EP <em>“Se Fue El Verano”</em>, 
-        en el que, bajo la apariencia de himnos veraniegos, lanza una mordaz reflexión sobre la industria 
-        musical y la carrera por la relevancia frente al cuidado del arte.
+        Tras su primer álbum, <em>“Colección de Sueños”</em>, donde explora el bloqueo emocional
+        masculino desde una mirada sincera y crítica, Jassy presenta su EP
+        <em>“Se Fue El Verano”</em>, en el que, bajo la apariencia de himnos veraniegos, lanza una
+        mordaz reflexión sobre la industria musical y la carrera por la relevancia frente al cuidado
+        del arte.
       </p>
     </div>
   </div>
@@ -141,12 +196,20 @@
   <!-- DERECHA: FOTO A SANGRE -->
   <div class="bio-right">
     <img
-      src="assets/images/DesdeElSur/jassy_solo.webp"
+      ngSrc="assets/images/DesdeElSur/jassy_solo_2.webp"
       alt="Jassy Ojeda"
       width="1067"
       height="1600"
       loading="lazy"
       decoding="async"
-    >
+    />
+  </div>
+</section>
+
+<section class="booking section-shell">
+  <p class="eyebrow">¿LO LLEVAMOS AL ESCENARIO?</p>
+  <div>
+    <h2>Hagamos que <em>suene.</em></h2>
+    <a routerLink="/contacto" class="button button--dark">Contacto y contratación ↗</a>
   </div>
 </section>

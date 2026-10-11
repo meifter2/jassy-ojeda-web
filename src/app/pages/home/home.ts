@@ -1,26 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { CONCERTS } from './concerts.data';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrl: './home.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   readonly concerts = CONCERTS;
-  isMobile = false;
-
-  ngOnInit(): void {
-    this.checkScreenSize();
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.checkScreenSize();
-  }
-
-  private checkScreenSize(): void {
-    this.isMobile = window.innerWidth <= 768;
-  }
+  readonly hasUpcomingConcerts = CONCERTS.some((concert) => concert.status === 'upcoming');
 }
