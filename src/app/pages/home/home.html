@@ -80,7 +80,9 @@
 
           <div class="gig__info">
             <p class="gig__city">{{ concert.city }}</p>
-            <p class="gig__venue">{{ concert.venue }}</p>
+            <p class="gig__venue">
+              {{ concert.venue }}@if (concert.time) {<span class="gig__time"> · {{ concert.time }} h</span>}
+            </p>
           </div>
 
           <div class="gig__cta">

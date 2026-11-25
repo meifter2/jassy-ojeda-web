@@ -48,7 +48,14 @@ describe('HomeComponent', () => {
     );
 
     expect(renderedConcerts.length).toBe(component.concerts.length);
-    expect(element.querySelectorAll('.gig--upcoming').length).toBe(0);
+    const upcomingConcerts = element.querySelectorAll<HTMLElement>('.gig--upcoming');
+    expect(upcomingConcerts.length).toBe(1);
+    expect(upcomingConcerts[0].querySelector('.gig__venue')?.textContent).toContain(
+      'Peor para el Sol',
+    );
+    expect(upcomingConcerts[0].querySelector<HTMLAnchorElement>('.gig__btn')?.href).toContain(
+      'giglon.com',
+    );
     expect(cocheraConcert?.classList.contains('gig--past')).toBeTrue();
     expect(cocheraConcert?.querySelector('.gig__badge')?.textContent).toContain(
       'Concierto realizado',

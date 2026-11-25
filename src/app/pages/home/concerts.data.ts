@@ -8,6 +8,7 @@ export type Concert = {
   city: string;
   venue: string;
   status: ConcertStatus;
+  time?: string;
   ticketUrl?: string;
 };
 
@@ -24,6 +25,17 @@ export const CONCERTS: readonly Concert[] = [
     status: 'upcoming',
   },
   */
+  {
+    id: 'peor-para-el-sol-2026-12-06',
+    day: '6',
+    month: 'DIC',
+    year: '2026',
+    city: 'Madrid, España',
+    venue: 'Peor para el Sol',
+    time: '20:30',
+    status: 'upcoming',
+    ticketUrl: 'https://www.giglon.com/todos?idEvent=jassy-ojeda-en-madrid',
+  },
   {
     id: 'cochera-cabaret-2026-06-21',
     day: '21',
